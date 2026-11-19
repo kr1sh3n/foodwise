@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  PROVIDER
+  STUDENT
+  NGO
+}
+
+enum FoodCategory {
+  MEALS
+  BAKERY
+  SNACKS
+  FRUITS_VEG
+  DAIRY
+  BEVERAGES
+  DESSERTS
+}
+
+enum Dietary {
+  VEG
+  NON_VEG
+  VEGAN
+}
+
+enum ListingStatus {
+  ACTIVE
+  COMPLETED
+  EXPIRED
+  CANCELLED
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  COLLECTED
+  CANCELLED
+  EXPIRED
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String
+  email         String         @unique
+  passwordHash  String
+  role          Role
+  organization  String?
+  phone         String?
+  campus        String?
+  createdAt     DateTime       @default(now())
+  listings      FoodListing[]
+  requests      FoodRequest[]
+  notifications Notification[]
+}
+
+model FoodListing {
+  id             String        @id @default(cuid())
+  providerId     String
+  provider       User          @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  title          String
+  description    String
+  category       FoodCategory
+  dietary        Dietary       @default(VEG)
+  imageUrl       String?
+  quantity       Int
+  remaining      Int
+  unit           String        @default("servings")
+  kgPerUnit      Float         @default(0.35)
+  preparedAt     DateTime
+  pickupLocation String
+  deadline       DateTime
+  status         ListingStatus @default(ACTIVE)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  requests       FoodRequest[]
+
+  @@index([status, deadline])
+  @@index([providerId])
+}
+
+model FoodRequest {
+  id           String        @id @default(cuid())
+  listingId    String
+  listing      FoodListing   @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  requesterId  String
+  requester    User          @relation(fields: [requesterId], references: [id], onDelete: Cascade)
+  quantity     Int
+  message      String?
+  status       RequestStatus @default(PENDING)
+  pickupCode   String
+  reminderSent Boolean       @default(false)
+  createdAt    DateTime      @default(now())
+  decidedAt    DateTime?
+  collectedAt  DateTime?
+
+  @@index([listingId, status])
+  @@index([requesterId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String
+  title     String
+  body      String
+  link      String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId, read])
+}

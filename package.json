@@ -1,0 +1,15 @@
+{
+  "name": "foodwise",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "db": "npm --prefix server run db",
+    "setup": "npm --prefix server run setup",
+    "dev": "concurrently -n api,web -c green,cyan \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build",
+    "demo:refresh": "npm --prefix server run seed"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}

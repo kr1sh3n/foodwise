@@ -1,0 +1,105 @@
+@page {
+  size: A4;
+  margin: 2.3cm 2.4cm 2.2cm 2.4cm;
+  @top-center {
+    content: "CSCR2600 – PBL-1 Project Design Approval";
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10pt;
+    color: #333;
+    border-bottom: 0.6pt solid #888;
+    vertical-align: bottom;
+    padding-bottom: 4pt;
+    margin-bottom: 10pt;
+  }
+  @bottom-center {
+    content: counter(page);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+  }
+}
+@page cover {
+  margin: 2.2cm 2.4cm;
+  @top-center { content: none; border: none; }
+  @bottom-center { content: none; }
+}
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 1.4;
+  color: #000;
+  margin: 0;
+}
+p { margin: 0 0 7pt; text-align: justify; hyphens: auto; }
+h1 { font-size: 16pt; font-weight: bold; margin: 0 0 10pt; break-after: avoid; }
+h2 { font-size: 13.5pt; font-weight: bold; margin: 12pt 0 6pt; break-after: avoid; }
+h3 { font-size: 12.5pt; font-weight: bold; margin: 10pt 0 5pt; break-after: avoid; }
+.chapter { break-before: page; }
+ul, ol { margin: 0 0 7pt; padding-left: 24pt; }
+li { margin: 0 0 2pt; text-align: justify; }
+b, strong { font-weight: bold; }
+
+.cap { text-align: center; font-weight: bold; font-size: 11.5pt; margin: 12pt 0 6pt; break-after: avoid; }
+.figcap { text-align: center; font-weight: bold; font-size: 11.5pt; margin: 8pt 0 14pt; }
+table.t {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11pt;
+  line-height: 1.35;
+  margin: 0 0 12pt;
+  break-inside: auto;
+}
+table.t th, table.t td { border: 0.8pt solid #000; padding: 3pt 6pt; vertical-align: top; text-align: left; }
+table.t th { background: #dfe6f1; font-weight: bold; }
+table.t tr { break-inside: avoid; }
+table.t td.c, table.t th.c { text-align: center; }
+table.lld td:first-child { width: 22%; font-weight: bold; }
+
+.lit-title { font-weight: bold; font-style: italic; margin: 4pt 0 6pt; text-align: left; }
+.formula {
+  text-align: center;
+  font-style: italic;
+  margin: 6pt 0 10pt;
+  font-size: 12.5pt;
+}
+.flow { text-align: center; font-weight: bold; margin: 8pt 0 12pt; line-height: 1.6; }
+.flow .arrow { display: block; font-weight: normal; color: #1f3a6e; }
+.callout { border-left: 3pt solid #1f3a6e; padding: 4pt 0 4pt 10pt; margin: 6pt 0 10pt; text-align: justify; }
+
+/* ---- Contents ---- */
+.toc { font-size: 12pt; line-height: 1.55; }
+.toc .row { display: flex; align-items: baseline; }
+.toc .row .t { flex: none; }
+.toc .row .dots { flex: 1; border-bottom: 1.2pt dotted #000; margin: 0 4pt; transform: translateY(-3pt); }
+.toc .row .p { flex: none; min-width: 16pt; text-align: right; }
+.toc .l1 { font-weight: bold; margin-top: 6pt; }
+.toc .l2 { padding-left: 18pt; }
+.toc .l3 { padding-left: 36pt; }
+
+/* ---- Diagrams ---- */
+.fig { break-inside: avoid; margin: 8pt 0 0; }
+.box {
+  border: 2pt solid #1f3a6e;
+  border-radius: 2pt;
+  background: #e8eef8;
+  text-align: center;
+  font-size: 12pt;
+  line-height: 1.25;
+  padding: 7pt 8pt;
+}
+.box.y { background: #fdf1d9; }
+.box.g { background: #e3f1e3; }
+.box.r { background: #f6e3e3; }
+.box.k { background: #eeeeee; }
+.box small { display: block; font-size: 10pt; color: #333; margin-top: 2pt; }
+.down { text-align: center; color: #1f3a6e; font-size: 15pt; line-height: 1; margin: 1pt 0; }
+.vflow { width: 62%; margin: 0 auto; }
+.vflow .box { padding: 6pt 8pt; }
+.mods { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6pt; }
+.mods .box { font-size: 10.5pt; padding: 8pt 4pt; display: flex; align-items: center; justify-content: center; }
+.layer-label { text-align: center; font-style: italic; font-size: 11.5pt; margin: 2pt 0 4pt; }
+.svc { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; }
+.states { display: grid; grid-template-columns: 1fr 0.35fr 1fr 0.35fr 1fr; align-items: center; }
+.states .arr { text-align: center; color: #1f3a6e; font-size: 11pt; line-height: 1.1; }
+.states .arr b { display: block; font-size: 16pt; }

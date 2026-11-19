@@ -1,0 +1,4 @@
+.pgdata
+uploads
+node_modules
+.env

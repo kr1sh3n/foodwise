@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FoodWise – User Guide, Under the Hood &amp; Viva Questions</title>
+<style>
+@page {
+  size: A4;
+  margin: 1.7cm 1.8cm 1.8cm 1.8cm;
+  @top-center { content: "FoodWise – Stop Wasting Food in College"; font: 9pt "Helvetica Neue", Arial, sans-serif; color: #5b7a63; }
+  @bottom-center { content: "Page " counter(page); font: 9pt "Helvetica Neue", Arial, sans-serif; color: #777; }
+}
+@page :first { @top-center { content: none; } }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 10pt; line-height: 1.45; color: #1d2b22; margin: 0; }
+h1 { font-size: 20pt; margin: 0; color: #14532d; letter-spacing: -.3pt; }
+h2 { font-size: 15pt; color: #14532d; margin: 0 0 8pt; padding-bottom: 4pt; border-bottom: 2pt solid #22c55e; break-after: avoid; }
+h3 { font-size: 11.5pt; color: #166534; margin: 12pt 0 5pt; break-after: avoid; }
+p { margin: 0 0 6pt; text-align: justify; }
+ul, ol { margin: 0 0 6pt; padding-left: 15pt; }
+li { margin: 0 0 2pt; }
+code, .mono { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 8.6pt; background: #eef6f0; padding: 0 2pt; border-radius: 2pt; }
+pre { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 8pt; line-height: 1.4; background: #0f2418; color: #d9f5e1; padding: 8pt 10pt; border-radius: 5pt; margin: 4pt 0 8pt; white-space: pre-wrap; break-inside: avoid; }
+pre .c { color: #86c79a; }
+.newpage { break-before: page; }
+table { width: 100%; border-collapse: collapse; margin: 3pt 0 8pt; font-size: 9pt; break-inside: auto; }
+th, td { border: .6pt solid #b9d3c0; padding: 3pt 5pt; text-align: left; vertical-align: top; }
+th { background: #dcfce7; color: #14532d; }
+tr { break-inside: avoid; }
+
+/* ---- page 1 ---- */
+.hero { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5pt solid #22c55e; padding-bottom: 6pt; margin-bottom: 7pt; }
+.hero .tag { font-size: 9pt; color: #4b6b55; }
+.hero .who { text-align: right; font-size: 8.6pt; color: #4b6b55; line-height: 1.35; white-space: nowrap; }
+.hero h1 { font-size: 18pt; white-space: nowrap; }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6pt; }
+.grid4 .card ul { font-size: 8.4pt; padding-left: 10pt; }
+.lead { font-size: 9.6pt; margin-bottom: 6pt; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; }
+.card { border: .8pt solid #bfe3c9; background: #f6fbf7; border-radius: 6pt; padding: 6pt 8pt; break-inside: avoid; }
+.card h4 { margin: 0 0 3pt; font-size: 10pt; color: #14532d; }
+.card ul, .card ol { padding-left: 12pt; margin: 0; font-size: 8.7pt; line-height: 1.38; }
+.card li { margin: 0 0 1pt; }
+.sec-label { font-size: 10.5pt; font-weight: bold; color: #14532d; margin: 7pt 0 4pt; }
+.runbox { display: grid; grid-template-columns: 1.15fr 1fr; gap: 8pt; margin-top: 7pt; }
+.runbox pre { margin: 0; font-size: 7.8pt; padding: 6pt 8pt; }
+.small { font-size: 8.4pt; }
+
+/* ---- architecture diagram ---- */
+.arch { margin: 6pt 0 10pt; break-inside: avoid; }
+.layer { border: 1.4pt solid #166534; border-radius: 5pt; padding: 5pt 7pt; text-align: center; font-size: 9pt; }
+.layer b { color: #14532d; }
+.l1 { background: #fef9c3; } .l2 { background: #e0f2fe; } .l3 { background: #dcfce7; } .l4 { background: #fce7f3; } .l5 { background: #f1f5f9; }
+.arrow { text-align: center; color: #166534; font-size: 11pt; line-height: 1.1; }
+.arrow span { font-size: 8pt; font-style: italic; color: #4b6b55; }
+.row5 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4pt; margin-top: 4pt; }
+.row5 div { background: #fff; border: .8pt solid #22c55e; border-radius: 4pt; font-size: 7.8pt; padding: 3pt 2pt; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6pt; }
+
+/* ---- viva ---- */
+.qa { margin: 0 0 6pt; break-inside: avoid; }
+.q { font-weight: bold; color: #14532d; }
+.q .n { display: inline-block; min-width: 20pt; color: #16a34a; }
+.a { margin-left: 20pt; text-align: justify; }
+.vcat { font-size: 11pt; color: #fff; background: #166534; padding: 3pt 8pt; border-radius: 4pt; margin: 10pt 0 6pt; break-after: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ======================= PAGE 1: FUNCTIONS & HOW TO USE ======================= -->
+<div class="hero">
+  <div>
+    <h1>FoodWise – Stop Wasting Food in College</h1>
+    <div class="tag">User guide · How it was built (under the hood) · Viva questions &amp; answers</div>
+  </div>
+  <div class="who">Shatakshi Pachori (2025340400)<br>Mehak (2025497969)<br>B.Tech CSE · Sharda University</div>
+</div>
+<p class="lead"><b>What it is:</b> a web app that connects campus food providers (cafeterias, hostel messes, restaurants) with students and NGOs, so that leftover food is collected and eaten instead of thrown away – and every rescued meal is counted.</p>
+
+<div class="sec-label">Functions of the app</div>
+<div class="grid4">
+  <div class="card"><h4>1. Role-based accounts</h4><ul><li>Sign up as <b>Provider</b>, <b>Student</b> or <b>NGO</b>; each gets its own dashboard.</li><li>Secure login (JWT); each role can only do its own actions.</li></ul></div>
+  <div class="card"><h4>2. Food listings (providers)</h4><ul><li>Photo, name, category, veg/non-veg, quantity, pickup spot, prepared time and a “collect by” deadline.</li><li>Edit or withdraw a listing at any time.</li></ul></div>
+  <div class="card"><h4>3. Discover food</h4><ul><li>Search by name; filter by category and diet; sort by ending soonest, newest or largest.</li><li>Cards show quantity left and time left.</li></ul></div>
+  <div class="card"><h4>4. Requests &amp; approval</h4><ul><li>Students request up to 3 servings, NGOs in bulk.</li><li>Approval <b>reserves stock instantly</b> – food can never be promised twice.</li></ul></div>
+  <div class="card"><h4>5. Verified pickup</h4><ul><li>Approved users get a 4-digit pickup code.</li><li>Provider enters the code at the counter; only then is the food counted as rescued.</li></ul></div>
+  <div class="card"><h4>6. Auto-expiry &amp; notifications</h4><ul><li>Listings past their deadline expire automatically (checked every minute).</li><li>Bell alerts for approvals, rejections, cancellations and 1-hour reminders.</li></ul></div>
+  <div class="card"><h4>7. Impact dashboard</h4><ul><li>Meals rescued, kg saved, CO₂ avoided, pickups, vendors.</li><li>Weekly charts, category split; campus-wide or “just me”.</li></ul></div>
+  <div class="card"><h4>8. Leaderboard</h4><ul><li>Top providers and top rescuers by week, month or all time.</li><li>Points = 10 per kg rescued + 5 per pickup.</li></ul></div>
+</div>
+
+<div class="sec-label">How to use it</div>
+<div class="grid2">
+  <div class="card"><h4>As a Provider (canteen / mess / restaurant)</h4><ol>
+    <li>Sign up → choose <b>Food Provider</b> → enter canteen name.</li>
+    <li>Click <b>List food</b>, add details and deadline → <b>Publish</b>.</li>
+    <li>On the dashboard, <b>Approve</b> or <b>Decline</b> incoming requests.</li>
+    <li>When someone arrives, click <b>Confirm pickup</b> and type their 4-digit code.</li></ol></div>
+  <div class="card"><h4>As a Student / NGO</h4><ol>
+    <li>Sign up → choose <b>Student</b> or <b>NGO</b>.</li>
+    <li>Open <b>Discover</b>, search or filter, and open a food card.</li>
+    <li>Choose quantity → <b>Send request</b>; wait for the bell notification.</li>
+    <li>Go to the pickup spot before the deadline and show your <b>pickup code</b>.</li></ol></div>
+</div>
+
+<div class="runbox">
+<pre><span class="c"># Run it (from the foodwise folder) – 3 terminals</span>
+npm run install:all     <span class="c"># first time only</span>
+npm run db              <span class="c"># 1: start the database</span>
+npm run demo:refresh    <span class="c"># 2: load fresh demo data</span>
+npm run dev             <span class="c"># 3: start API + website</span>
+<span class="c"># open http://localhost:5173</span></pre>
+  <div class="card small"><h4>Demo accounts (password: password123)</h4>
+    <ul><li>Provider – <span class="mono">cafeteria@foodwise.demo</span></li>
+    <li>Student – <span class="mono">student@foodwise.demo</span></li>
+    <li>NGO – <span class="mono">ngo@foodwise.demo</span></li></ul>
+    <p class="small" style="margin:3pt 0 0">The login page also has one-click demo buttons. All data is sample (demo) data.</p></div>
+</div>
+
+<!-- ======================= UNDER THE HOOD ======================= -->
+<section class="newpage">
+<h2>Under the Hood – How the App Was Made</h2>
+<p>FoodWise is a <b>full-stack web application</b> with three parts: a <b>frontend</b> (what the user sees, running in the browser), a <b>backend</b> (a server that holds the rules and talks to the database) and a <b>database</b> (where all data is stored permanently). They talk to each other through a <b>REST API</b> using JSON.</p>
+
+<div class="arch">
+  <div class="layer l1"><b>User’s browser</b> – Provider / Student / NGO on laptop or phone</div>
+  <div class="arrow">↓</div>
+  <div class="layer l2"><b>Frontend:</b> React 19 + TypeScript + Tailwind CSS (built with Vite) – pages, forms, charts</div>
+  <div class="arrow">↓ <span>HTTP requests with JSON + JWT token (e.g. POST /api/requests)</span></div>
+  <div class="layer l3"><b>Backend:</b> Node.js + Express 5 – login check (JWT) → role check → input validation (Zod) → route logic
+    <div class="row5"><div>Auth</div><div>Listings</div><div>Requests</div><div>Notifications</div><div>Impact</div><div>Leaderboard</div><div>Uploads</div></div></div>
+  <div class="arrow">↓ <span>Prisma ORM (type-safe database queries)</span></div>
+  <div class="layer l4"><b>Database:</b> PostgreSQL – tables User, FoodListing, FoodRequest, Notification</div>
+  <div class="arrow">↓</div>
+  <div class="row2"><div class="layer l5"><b>Images:</b> Cloudinary (or local <span class="mono">uploads/</span> folder)</div><div class="layer l5"><b>Background job:</b> expiry check every 60 seconds</div></div>
+</div>
+
+<h3>1. Technologies used and why</h3>
+<table>
+  <tr><th style="width:19%">Part</th><th style="width:27%">Technology</th><th>Why we used it</th></tr>
+  <tr><td>Language</td><td>TypeScript</td><td>JavaScript with types – catches mistakes before running; same language on frontend and backend.</td></tr>
+  <tr><td>Frontend UI</td><td>React 19</td><td>Builds the interface from reusable components (FoodCard, Modal, Badge…); updates the screen when data changes.</td></tr>
+  <tr><td>Styling</td><td>Tailwind CSS 4</td><td>Utility classes for fast, consistent, mobile-responsive green-and-white design.</td></tr>
+  <tr><td>Routing</td><td>React Router 7</td><td>Different pages (/discover, /dashboard, /food/:id) without reloading; protects pages by login and role.</td></tr>
+  <tr><td>Charts / animation / icons</td><td>Recharts, Framer Motion, Lucide</td><td>Impact charts (area, pie, bar); smooth animations; clean icons.</td></tr>
+  <tr><td>Build tool</td><td>Vite</td><td>Very fast development server with instant reload; produces the final optimised website files.</td></tr>
+  <tr><td>Backend</td><td>Node.js + Express 5</td><td>Simple, popular web server framework for building the REST API.</td></tr>
+  <tr><td>Database</td><td>PostgreSQL</td><td>Reliable relational database with transactions – needed so food quantities are always correct.</td></tr>
+  <tr><td>ORM</td><td>Prisma</td><td>Define tables once in <span class="mono">schema.prisma</span>; write database queries in TypeScript instead of raw SQL.</td></tr>
+  <tr><td>Authentication</td><td>JWT + bcrypt</td><td>JWT = signed login token (valid 7 days); bcrypt = stores passwords as salted hashes, never plain text.</td></tr>
+  <tr><td>Validation</td><td>Zod</td><td>Checks every input (e.g. quantity must be a positive number) before it reaches the database.</td></tr>
+  <tr><td>Image upload</td><td>Multer + Cloudinary</td><td>Multer receives the uploaded file (max 5 MB, images only); Cloudinary hosts it online (local folder used if keys are not set).</td></tr>
+  <tr><td>Local database</td><td>embedded-postgres</td><td>Runs a real PostgreSQL from inside the project, so no separate installation is needed for the demo.</td></tr>
+</table>
+
+<h3>2. Steps followed to build it</h3>
+<ol>
+  <li><b>Requirements:</b> listed the users (provider, student, NGO), features, and rules (e.g. a student can take at most 3 servings).</li>
+  <li><b>Database design:</b> four tables and their relations written in <span class="mono">server/prisma/schema.prisma</span>.</li>
+  <li><b>Backend API:</b> Express routes for auth, listings, requests, notifications, impact, leaderboard and uploads, with login/role middleware and Zod validation.</li>
+  <li><b>Business logic:</b> safe stock reservation, request states, pickup codes, auto-expiry job and impact calculations.</li>
+  <li><b>Frontend:</b> React pages (Landing, Login/Register, Discover, Food details, Dashboards, List food, Impact, Leaderboard, Notifications) connected to the API.</li>
+  <li><b>Demo data:</b> a seed script creates 14 users, ~90 listings and ~350 requests covering 8 weeks, so charts and leaderboards look realistic.</li>
+  <li><b>Testing:</b> every flow was tested in the browser and through the API (wrong pickup code, over-limit requests, role restrictions, expiry, mobile layout), and bugs found were fixed.</li>
+</ol>
+
+<h3>3. Folder structure</h3>
+<pre>foodwise/
+├── server/                     <span class="c"># backend</span>
+│   ├── prisma/schema.prisma    <span class="c"># database tables</span>
+│   ├── prisma/seed.ts          <span class="c"># demo data</span>
+│   └── src/
+│       ├── index.ts            <span class="c"># starts Express, mounts routes, runs expiry job</span>
+│       ├── middleware/auth.ts  <span class="c"># JWT check + role check</span>
+│       ├── routes/             <span class="c"># auth, listings, requests, notifications, impact, leaderboard, uploads</span>
+│       └── lib/                <span class="c"># expiry job, notifications, image upload, error helpers</span>
+└── client/                     <span class="c"># frontend</span>
+    └── src/
+        ├── pages/              <span class="c"># one file per screen</span>
+        ├── components/         <span class="c"># Layout, FoodCard, RequestRow, Toast, ui</span>
+        └── lib/                <span class="c"># api.ts (calls backend), auth.tsx, hooks.ts, types.ts</span></pre>
+
+<h3>4. Database design</h3>
+<table>
+  <tr><th style="width:17%">Table</th><th>Main fields</th><th style="width:30%">Relations</th></tr>
+  <tr><td>User</td><td>id, name, email (unique), passwordHash, role (PROVIDER / STUDENT / NGO), organization, campus</td><td>A provider has many listings; a user has many requests and notifications</td></tr>
+  <tr><td>FoodListing</td><td>title, description, category, dietary, imageUrl, quantity, <b>remaining</b>, unit, kgPerUnit, preparedAt, pickupLocation, <b>deadline</b>, status (ACTIVE / COMPLETED / EXPIRED / CANCELLED)</td><td>Belongs to one provider; has many requests</td></tr>
+  <tr><td>FoodRequest</td><td>quantity, message, <b>status</b> (PENDING / APPROVED / REJECTED / COLLECTED / CANCELLED / EXPIRED), <b>pickupCode</b>, reminderSent, timestamps</td><td>Links one requester to one listing</td></tr>
+  <tr><td>Notification</td><td>type, title, body, link, read, createdAt</td><td>Belongs to one user</td></tr>
+</table>
+
+<h3>5. How a request flows through the system</h3>
+<ol>
+  <li>Student clicks <b>Send request</b> → frontend sends <span class="mono">POST /api/requests</span> with the JWT token.</li>
+  <li>Backend checks the token (logged in?), the role (student/NGO?), the input (Zod), the student limit (≤ 3) and that enough food remains → saves a <b>PENDING</b> request with a random 4-digit code.</li>
+  <li>Provider clicks <b>Approve</b> → inside a database <b>transaction</b> the stock is reduced only if enough is left, the request becomes <b>APPROVED</b>, and a notification with the code is created.</li>
+  <li>At pickup the provider enters the code → if it matches, the request becomes <b>COLLECTED</b>; when all food is collected the listing becomes <b>COMPLETED</b>.</li>
+  <li>The impact page adds up all COLLECTED requests to show meals, kg and CO₂.</li>
+</ol>
+
+<h3>6. Key code: safe stock reservation</h3>
+<p>This is the most important piece of logic. Two approvals could happen at the same moment (two staff members, or a double click); the check and the subtraction happen in <b>one atomic database step</b>, so the remaining quantity can never go below zero.</p>
+<pre><span class="c">// server/src/routes/requests.ts – approve a request</span>
+await prisma.$transaction(async (tx) => {
+  <span class="c">// Only subtracts if enough is left (remaining >= requested quantity)</span>
+  const dec = await tx.foodListing.updateMany({
+    where: { id: fr.listingId, remaining: { gte: fr.quantity } },
+    data:  { remaining: { decrement: fr.quantity } },
+  });
+  if (dec.count === 0) throw bad('Not enough quantity left to approve this request');
+  await tx.foodRequest.update({ where: { id: fr.id }, data: { status: 'APPROVED' } });
+  <span class="c">// ...notify the requester, auto-decline pending requests that no longer fit</span>
+});</pre>
+
+<h3>7. Request life cycle (state machine)</h3>
+<table>
+  <tr><th>From</th><th>Action</th><th>To</th><th>Effect on stock</th></tr>
+  <tr><td>—</td><td>Student/NGO sends request</td><td>PENDING</td><td>none</td></tr>
+  <tr><td>PENDING</td><td>Provider approves</td><td>APPROVED</td><td>remaining − quantity</td></tr>
+  <tr><td>PENDING</td><td>Provider declines / not enough left / user cancels</td><td>REJECTED / CANCELLED</td><td>none</td></tr>
+  <tr><td>APPROVED</td><td>Correct pickup code entered</td><td>COLLECTED</td><td>counted as rescued</td></tr>
+  <tr><td>APPROVED</td><td>Revoked / cancelled / deadline passed</td><td>REJECTED / CANCELLED / EXPIRED</td><td>quantity returned (+)</td></tr>
+</table>
+
+<h3>8. Formulas used</h3>
+<table>
+  <tr><th style="width:30%">Metric</th><th>Formula</th></tr>
+  <tr><td>Meals rescued</td><td>Sum of quantities of all COLLECTED requests</td></tr>
+  <tr><td>Food saved (kg)</td><td>Σ (quantity × kg per unit of that listing)</td></tr>
+  <tr><td>CO₂e avoided (kg)</td><td>Food saved (kg) × 2.5 (average emission factor for food waste, based on FAO estimates)</td></tr>
+  <tr><td>Rescue rate (%)</td><td>(Total listings − Expired listings) ÷ Total listings × 100</td></tr>
+  <tr><td>Leaderboard points</td><td>10 × kg rescued + 5 × number of pickups</td></tr>
+  <tr><td>Equivalents</td><td>km not driven = CO₂ ÷ 0.17; trees = CO₂ ÷ 21 (kg absorbed per tree per year)</td></tr>
+</table>
+
+<h3>9. Main API endpoints</h3>
+<table>
+  <tr><th style="width:40%">Endpoint</th><th style="width:16%">Who</th><th>Purpose</th></tr>
+  <tr><td><span class="mono">POST /api/auth/register</span>, <span class="mono">/login</span></td><td>Anyone</td><td>Create account / log in, returns JWT token</td></tr>
+  <tr><td><span class="mono">GET /api/listings</span></td><td>Anyone</td><td>Search, filter and sort available food</td></tr>
+  <tr><td><span class="mono">POST /api/listings</span>, <span class="mono">PATCH /:id</span>, <span class="mono">POST /:id/cancel</span></td><td>Provider</td><td>Create, edit or withdraw a listing</td></tr>
+  <tr><td><span class="mono">POST /api/requests</span></td><td>Student, NGO</td><td>Request food</td></tr>
+  <tr><td><span class="mono">POST /api/requests/:id/approve</span> · <span class="mono">/reject</span> · <span class="mono">/collect</span></td><td>Provider</td><td>Approve, decline, or confirm pickup with code</td></tr>
+  <tr><td><span class="mono">POST /api/requests/:id/cancel</span></td><td>Requester</td><td>Cancel own request</td></tr>
+  <tr><td><span class="mono">GET /api/notifications</span>, <span class="mono">POST /read-all</span></td><td>Logged in</td><td>Read notifications, mark as read</td></tr>
+  <tr><td><span class="mono">GET /api/impact</span>, <span class="mono">GET /api/leaderboard</span></td><td>Anyone</td><td>Impact statistics and rankings</td></tr>
+  <tr><td><span class="mono">POST /api/uploads</span></td><td>Provider</td><td>Upload a food photo</td></tr>
+</table>
+
+<h3>10. Security measures</h3>
+<ul>
+  <li>Passwords hashed with <b>bcrypt</b> (salted, cost factor 10) – the real password is never stored.</li>
+  <li>Every protected request needs a valid <b>JWT</b>; wrong or expired token → 401 Unauthorized.</li>
+  <li><b>Role-based access control</b> on the server: e.g. only providers can approve; a provider can only manage their own listings → 403 Forbidden otherwise.</li>
+  <li>All input validated with <b>Zod</b>; uploads limited to images under 5 MB.</li>
+  <li>Prisma uses parameterised queries, which protects against <b>SQL injection</b>.</li>
+  <li>Pickup codes ensure food goes to the approved person only.</li>
+</ul>
+
+<h3>11. Limitations and future scope</h3>
+<ul>
+  <li><b>Now:</b> prototype with demo data; in-app notifications only; no admin/moderator role; no automated test suite.</li>
+  <li><b>Future:</b> college single sign-on, SMS/e-mail/push alerts, map navigation to pickup points, AI demand prediction so kitchens cook the right amount, food-safety checklist, mobile app, admin panel, cloud deployment.</li>
+</ul>
+</section>
+
+<!-- ======================= VIVA ======================= -->
+<section class="newpage">
+<h2>Viva Questions &amp; Answers</h2>
+
+<div class="vcat">A. Project basics</div>
+<div class="qa"><div class="q"><span class="n">1.</span>What is your project?</div><div class="a">FoodWise is a web app that connects campus food providers – cafeterias, hostel messes and restaurants – with students and NGOs, so that surplus food is redistributed instead of wasted. It also measures the impact in meals, kilograms and CO₂ saved.</div></div>
+<div class="qa"><div class="q"><span class="n">2.</span>What problem does it solve?</div><div class="a">Campus kitchens cook in bulk for uncertain demand, so edible food is often thrown away at the end of the day. Sharing it through WhatsApp groups is informal: quantities aren’t tracked, many people come for the same food, and nothing is recorded. FoodWise gives a structured, real-time and trackable channel.</div></div>
+<div class="qa"><div class="q"><span class="n">3.</span>Who are the users?</div><div class="a">Three roles: <b>Providers</b> (list food, approve requests, verify pickups), <b>Students</b> (request up to 3 servings) and <b>NGOs</b> (request bulk quantities for shelters and community kitchens).</div></div>
+<div class="qa"><div class="q"><span class="n">4.</span>How is it different from apps like Zomato or OLIO?</div><div class="a">Zomato sells food; FoodWise is free redistribution. OLIO is open to the general public. FoodWise is built for a campus: it has institutional roles, provider approval, stock reservation, pickup codes, automatic expiry and campus-level impact reporting.</div></div>
+<div class="qa"><div class="q"><span class="n">5.</span>What are the main modules?</div><div class="a">(1) Authentication &amp; roles, (2) Food listings &amp; expiry, (3) Discovery &amp; search, (4) Requests &amp; pickup, (5) Notifications, impact &amp; leaderboard.</div></div>
+<div class="qa"><div class="q"><span class="n">6.</span>Explain the complete flow of the app.</div><div class="a">Provider lists food → student/NGO finds it on Discover and requests a quantity → provider approves (stock reserved) → requester gets a notification with a 4-digit code → at pickup the provider enters the code → request becomes collected → impact and leaderboard update. Listings past their deadline expire automatically.</div></div>
+
+<div class="vcat">B. Frontend</div>
+<div class="qa"><div class="q"><span class="n">7.</span>Which technologies did you use for the frontend?</div><div class="a">React 19 with TypeScript, Tailwind CSS for styling, React Router for pages, Recharts for charts, Framer Motion for animations, Lucide for icons, and Vite as the build tool.</div></div>
+<div class="qa"><div class="q"><span class="n">8.</span>Why React?</div><div class="a">React builds the UI from reusable components and automatically re-renders when data (state) changes. It has a large ecosystem and is widely used in industry.</div></div>
+<div class="qa"><div class="q"><span class="n">9.</span>What is a component? Give examples from your project.</div><div class="a">A component is a reusable piece of UI written as a function that returns JSX. Examples: <span class="mono">FoodCard</span> (one food item), <span class="mono">Layout</span> (header, navigation, footer), <span class="mono">RequestRow</span> (one request with Approve/Decline buttons), <span class="mono">Modal</span>, <span class="mono">Badge</span>.</div></div>
+<div class="qa"><div class="q"><span class="n">10.</span>What are hooks? Which hooks did you use?</div><div class="a">Hooks let function components use React features. We used <span class="mono">useState</span> (form values, loading state), <span class="mono">useEffect</span> (side effects such as fetching data), <span class="mono">useContext</span> (sharing the logged-in user through AuthProvider) and custom hooks like <span class="mono">useApi</span> (fetch and auto-refresh data) and <span class="mono">useDebounced</span> (delay search until the user stops typing).</div></div>
+<div class="qa"><div class="q"><span class="n">11.</span>What is Tailwind CSS?</div><div class="a">A utility-first CSS framework – we style elements with small classes like <span class="mono">rounded-xl</span>, <span class="mono">bg-brand-600</span>, <span class="mono">md:grid-cols-3</span> directly in the markup. It keeps the design consistent and makes responsive layouts easy.</div></div>
+<div class="qa"><div class="q"><span class="n">12.</span>How did you make it mobile-responsive?</div><div class="a">Using Tailwind breakpoints (<span class="mono">sm:</span>, <span class="mono">md:</span>, <span class="mono">lg:</span>), CSS grid/flex layouts that collapse to one column, and a hamburger menu on small screens. We tested at 375 px width (phone size) to ensure there is no horizontal scrolling.</div></div>
+<div class="qa"><div class="q"><span class="n">13.</span>How are pages protected so only logged-in users see them?</div><div class="a">A <span class="mono">Protected</span> route component checks the user from AuthContext. If not logged in, it redirects to <span class="mono">/login?next=…</span>; if the role is wrong (e.g. a student opening “List food”) it redirects to the dashboard. The server also checks roles, so the frontend check is only for convenience.</div></div>
+<div class="qa"><div class="q"><span class="n">14.</span>How does the frontend talk to the backend?</div><div class="a">Through a small <span class="mono">api()</span> helper using <span class="mono">fetch</span>. It sends JSON, attaches the JWT token in the <span class="mono">Authorization: Bearer</span> header, and throws a readable error if the server responds with an error. In development, Vite forwards <span class="mono">/api</span> calls to the backend on port 4000.</div></div>
+<div class="qa"><div class="q"><span class="n">15.</span>How do notifications update without refreshing?</div><div class="a">Polling – the notification bell asks the server for new notifications every 20 seconds, and dashboards refresh their data every 15–30 seconds. In future this could be replaced with WebSockets for instant updates.</div></div>
+
+<div class="vcat">C. Backend</div>
+<div class="qa"><div class="q"><span class="n">16.</span>Which backend technology did you use and why?</div><div class="a">Node.js with Express 5. Node lets us use TypeScript on both sides; Express is lightweight and makes it easy to define routes and middleware for a REST API.</div></div>
+<div class="qa"><div class="q"><span class="n">17.</span>What is a REST API?</div><div class="a">A style of API where resources (listings, requests) are accessed with URLs and HTTP methods: GET to read, POST to create or perform an action, PATCH to update. Data is exchanged as JSON and each request is independent (stateless).</div></div>
+<div class="qa"><div class="q"><span class="n">18.</span>What is middleware?</div><div class="a">A function that runs before the route handler. Ours: <span class="mono">requireAuth</span> (verifies the JWT), <span class="mono">requireRole('PROVIDER')</span> (checks the role), CORS, JSON body parsing and a central error handler that converts errors into proper HTTP responses.</div></div>
+<div class="qa"><div class="q"><span class="n">19.</span>Which HTTP status codes does your API use?</div><div class="a">200 OK, 201 Created (new account, listing, request or upload), 400 Bad Request (invalid input, wrong pickup code), 401 Unauthorized (not logged in), 403 Forbidden (wrong role / not your listing), 404 Not Found, 500 Internal Server Error.</div></div>
+<div class="qa"><div class="q"><span class="n">20.</span>What is Zod and why did you use it?</div><div class="a">Zod is a validation library. We define schemas (e.g. quantity must be an integer ≥ 1, deadline must be in the future) and every request body is checked before reaching the database, so bad data is rejected with a clear message.</div></div>
+<div class="qa"><div class="q"><span class="n">21.</span>How are images uploaded?</div><div class="a">The browser sends the file as form data to <span class="mono">POST /api/uploads</span>. Multer receives it in memory, checks it is an image under 5 MB, and it is uploaded to Cloudinary (if API keys are set) or saved in the local <span class="mono">uploads</span> folder. The returned URL is stored with the listing. If no photo is added, a vegetarian placeholder for that food category is shown.</div></div>
+<div class="qa"><div class="q"><span class="n">22.</span>How does automatic expiry work?</div><div class="a">The server runs a background job every 60 seconds (<span class="mono">setInterval</span>). It finds ACTIVE listings whose deadline has passed, marks them EXPIRED, marks their pending/approved requests as EXPIRED, and notifies the people involved. It also sends a reminder to approved users when less than 60 minutes are left.</div></div>
+
+<div class="vcat">D. Database</div>
+<div class="qa"><div class="q"><span class="n">23.</span>Which database did you use and why?</div><div class="a">PostgreSQL, a relational database. Our data is naturally relational (users → listings → requests) and we need <b>transactions</b> to keep quantities correct. It is free, open-source and reliable.</div></div>
+<div class="qa"><div class="q"><span class="n">24.</span>What is an ORM? Why Prisma?</div><div class="a">An ORM (Object-Relational Mapper) lets us work with database tables as objects in code instead of writing SQL. Prisma generates a type-safe client from our schema file, so a wrong field name is caught at compile time; it also creates the tables from the schema.</div></div>
+<div class="qa"><div class="q"><span class="n">25.</span>Explain your tables and relationships.</div><div class="a">Four tables: <b>User</b>, <b>FoodListing</b>, <b>FoodRequest</b>, <b>Notification</b>. One provider (User) has many FoodListings (one-to-many); one FoodListing has many FoodRequests; each FoodRequest belongs to one requester (User); each Notification belongs to one User.</div></div>
+<div class="qa"><div class="q"><span class="n">26.</span>Why store both <i>quantity</i> and <i>remaining</i>?</div><div class="a"><i>quantity</i> is the total originally listed; <i>remaining</i> is what can still be requested after approvals. Keeping <i>remaining</i> as a column lets us reserve stock atomically and show “36 of 40 left” instantly.</div></div>
+<div class="qa"><div class="q"><span class="n">27.</span>What is a transaction? Where did you use it?</div><div class="a">A group of database operations that either all succeed or all fail (ACID). We use it when approving, rejecting, cancelling and collecting requests – e.g. reducing stock, changing request status and creating a notification happen together, so the data is never half-updated.</div></div>
+<div class="qa"><div class="q"><span class="n">28.</span>What are enums in your schema?</div><div class="a">Fixed lists of allowed values: Role (PROVIDER, STUDENT, NGO), FoodCategory (MEALS, BAKERY, SNACKS, FRUITS_VEG, DAIRY, BEVERAGES, DESSERTS), Dietary (VEG, NON_VEG, VEGAN), ListingStatus and RequestStatus. The database rejects any other value.</div></div>
+<div class="qa"><div class="q"><span class="n">29.</span>Where does the sample data come from?</div><div class="a">A seed script (<span class="mono">prisma/seed.ts</span>) creates demo providers, students and NGOs, about 90 listings and 350 requests over 8 weeks with realistic photos, so the charts and leaderboard have meaningful data. It is all demo data – no real personal data is used.</div></div>
+
+<div class="vcat">E. Security &amp; authentication</div>
+<div class="qa"><div class="q"><span class="n">30.</span>How does login work?</div><div class="a">The user sends email and password; the server finds the user and compares the password with the stored bcrypt hash. If correct, it returns a <b>JWT</b> containing the user id, role and name, signed with a secret key and valid for 7 days. The browser stores it and sends it with every request.</div></div>
+<div class="qa"><div class="q"><span class="n">31.</span>What is JWT? What are its parts?</div><div class="a">JSON Web Token – a compact signed token with three parts: <b>header</b> (algorithm), <b>payload</b> (user id, role, expiry) and <b>signature</b>. The server can verify it without storing sessions, so it is stateless. If someone changes the payload, the signature no longer matches.</div></div>
+<div class="qa"><div class="q"><span class="n">32.</span>Why hash passwords? What is a salt?</div><div class="a">Hashing is one-way, so even if the database leaks, real passwords are not revealed. A salt is random data added before hashing so identical passwords give different hashes, defeating pre-computed (rainbow table) attacks. bcrypt is also deliberately slow, which makes brute-forcing hard.</div></div>
+<div class="qa"><div class="q"><span class="n">33.</span>What is the difference between authentication and authorisation?</div><div class="a">Authentication = proving who you are (login, JWT). Authorisation = what you are allowed to do (role checks – only providers approve; only the owner edits a listing).</div></div>
+<div class="qa"><div class="q"><span class="n">34.</span>Can a student approve their own request by calling the API directly?</div><div class="a">No. The approve endpoint has <span class="mono">requireRole('PROVIDER')</span> and also checks that the listing belongs to that provider; otherwise it returns 403 Forbidden. Security is enforced on the server, not only in the UI.</div></div>
+<div class="qa"><div class="q"><span class="n">35.</span>How do you prevent SQL injection?</div><div class="a">Prisma never concatenates user input into SQL – it uses parameterised queries. Inputs are also validated with Zod first.</div></div>
+
+<div class="vcat">F. Logic &amp; algorithms</div>
+<div class="qa"><div class="q"><span class="n">36.</span>What happens if two requests are approved at the same moment and there isn’t enough food?</div><div class="a">This is a race condition. We solve it with an <b>atomic conditional update</b>: “reduce remaining by q <i>only where remaining ≥ q</i>”. The database executes this as one step, so only one approval can succeed; the other gets “Not enough quantity left”. Remaining can never become negative.</div></div>
+<div class="qa"><div class="q"><span class="n">37.</span>What happens to pending requests when food runs out?</div><div class="a">After an approval, any pending request asking for more than what remains is automatically declined and the requester is notified (“Only 2 servings remain – try a smaller request” or “fully claimed”).</div></div>
+<div class="qa"><div class="q"><span class="n">38.</span>Why a pickup code?</div><div class="a">It proves the person collecting is the approved requester, prevents someone else taking the food, and ensures impact is counted only for food that was actually handed over. It is a random 4-digit number generated with Node’s <span class="mono">crypto.randomInt</span>.</div></div>
+<div class="qa"><div class="q"><span class="n">39.</span>Explain the request state machine.</div><div class="a">PENDING → APPROVED → COLLECTED is the normal path. PENDING can become REJECTED or CANCELLED; APPROVED can become REJECTED (revoked), CANCELLED or EXPIRED, in which case its quantity is returned to the listing. Invalid jumps (e.g. collecting a rejected request) are refused.</div></div>
+<div class="qa"><div class="q"><span class="n">40.</span>How do search and filters work?</div><div class="a">The Discover page sends query parameters (<span class="mono">q</span>, <span class="mono">category</span>, <span class="mono">dietary</span>, <span class="mono">sort</span>) to <span class="mono">GET /api/listings</span>. The server does a case-insensitive match on the title, description, pickup location and provider name, applies the filters, shows only active listings with food left, and sorts by deadline, newest or quantity. Typing is debounced so the server isn’t called on every key press.</div></div>
+<div class="qa"><div class="q"><span class="n">41.</span>How do you calculate CO₂ saved?</div><div class="a">Food saved (kg) = Σ quantity × kg per unit for collected requests; CO₂e avoided = kg × 2.5, an average emission factor for wasted food based on FAO’s food wastage footprint estimates. It is an estimate, clearly labelled in the app.</div></div>
+<div class="qa"><div class="q"><span class="n">42.</span>How is the leaderboard ranked?</div><div class="a">By kilograms of food rescued in the chosen period (week, 30 days, all time). Points are also shown: 10 × kg + 5 × pickups, rewarding both quantity and regular participation.</div></div>
+
+<div class="vcat">G. Testing, deployment &amp; future</div>
+<div class="qa"><div class="q"><span class="n">43.</span>How did you test the project?</div><div class="a">Manual end-to-end testing as each role in the browser (register, list, request, approve, wrong and correct pickup code, cancel, expiry), API testing with curl (role restrictions return 403, student limit, over-allocation), responsive testing at phone size, plus TypeScript type-checking and a production build.</div></div>
+<div class="qa"><div class="q"><span class="n">44.</span>What bugs did you find and fix?</div><div class="a">Examples: a vegetarian listing without a photo showed a placeholder with meat (fixed with category-based vegetarian placeholders); new users were sent to the wrong page after sign-up; the provider’s listing order shuffled after updates (fixed with a stable sort); demo data expiring before a presentation (added a refresh command).</div></div>
+<div class="qa"><div class="q"><span class="n">45.</span>How would you deploy it?</div><div class="a">Build the React app into static files and host on Vercel/Netlify; host the Express API on Render/Railway; use a managed PostgreSQL (e.g. Neon/Supabase); set environment variables (DATABASE_URL, JWT_SECRET, Cloudinary keys); enable HTTPS.</div></div>
+<div class="qa"><div class="q"><span class="n">46.</span>What are the limitations?</div><div class="a">It is a prototype: notifications are in-app only (polling), there is no admin/moderator role, no automated test suite, food safety is the provider’s responsibility, and CO₂ uses an average factor rather than per-food values.</div></div>
+<div class="qa"><div class="q"><span class="n">47.</span>What is the future scope?</div><div class="a">College login (SSO), SMS/e-mail/push notifications, real-time updates with WebSockets, maps to pickup points, AI demand prediction to reduce over-cooking, food-safety checklists, an admin panel, ratings/feedback, and Android/iOS apps.</div></div>
+<div class="qa"><div class="q"><span class="n">48.</span>How does the project support sustainability goals?</div><div class="a">It reduces food waste and the greenhouse gases from it, helps food-insecure students and communities, and makes impact measurable – supporting UN SDG 2 (Zero Hunger) and SDG 12.3 (halve food waste).</div></div>
+<div class="qa"><div class="q"><span class="n">49.</span>What did you learn from this project?</div><div class="a">Full-stack development with React and Node, relational database design, REST API design, authentication and role-based security, handling concurrency with transactions, building charts from aggregated data, responsive UI design, and testing from a real user’s perspective.</div></div>
+<div class="qa"><div class="q"><span class="n">50.</span>If the server restarts, is data lost?</div><div class="a">No. All data is stored in PostgreSQL on disk; the server is stateless (it uses JWTs, not in-memory sessions), so after a restart users stay logged in and all listings and requests remain.</div></div>
+</section>
+
+</body>
+</html>

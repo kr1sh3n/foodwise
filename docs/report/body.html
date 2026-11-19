@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FoodWise – Project Design Approval</title>
+<link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+<!-- ============================ CONTENTS ============================ -->
+<section>
+<h1 style="text-align:center">Contents</h1>
+<div class="toc">
+  <div class="row l1"><span class="t">1. Abstract</span><span class="dots"></span><span class="p">{{s1}}</span></div>
+  <div class="row l1"><span class="t">2. Introduction</span><span class="dots"></span><span class="p">{{s2}}</span></div>
+  <div class="row l2"><span class="t">2.1 Clarity of Problem Definition</span><span class="dots"></span><span class="p">{{s2-1}}</span></div>
+  <div class="row l2"><span class="t">2.2 Background and Context</span><span class="dots"></span><span class="p">{{s2-2}}</span></div>
+  <div class="row l2"><span class="t">2.3 Problem Statement</span><span class="dots"></span><span class="p">{{s2-3}}</span></div>
+  <div class="row l2"><span class="t">2.4 Existing Situation and Problem Gap</span><span class="dots"></span><span class="p">{{s2-4}}</span></div>
+  <div class="row l2"><span class="t">2.5 Need and Significance</span><span class="dots"></span><span class="p">{{s2-5}}</span></div>
+  <div class="row l2"><span class="t">2.6 Objectives</span><span class="dots"></span><span class="p">{{s2-6}}</span></div>
+  <div class="row l2"><span class="t">2.7 Scope of Project</span><span class="dots"></span><span class="p">{{s2-7}}</span></div>
+  <div class="row l1"><span class="t">3. Study of Literature Survey</span><span class="dots"></span><span class="p">{{s3}}</span></div>
+  <div class="row l2"><span class="t">3.1 Purpose of Literature Survey</span><span class="dots"></span><span class="p">{{s3-1}}</span></div>
+  <div class="row l2"><span class="t">3.2 Literature Search Strategy</span><span class="dots"></span><span class="p">{{s3-2}}</span></div>
+  <div class="row l2"><span class="t">3.3 Source Selection Criteria</span><span class="dots"></span><span class="p">{{s3-3}}</span></div>
+  <div class="row l2"><span class="t">3.4 How Each Literature Source Is Analysed</span><span class="dots"></span><span class="p">{{s3-4}}</span></div>
+  <div class="row l2"><span class="t">3.5 Detailed Literature Review – Source 1</span><span class="dots"></span><span class="p">{{s3-5}}</span></div>
+  <div class="row l2"><span class="t">3.6 Detailed Literature Review – Source 2</span><span class="dots"></span><span class="p">{{s3-6}}</span></div>
+  <div class="row l2"><span class="t">3.7 Detailed Literature Review – Source 3</span><span class="dots"></span><span class="p">{{s3-7}}</span></div>
+  <div class="row l2"><span class="t">3.8 Detailed Literature Review – Source 4</span><span class="dots"></span><span class="p">{{s3-8}}</span></div>
+  <div class="row l2"><span class="t">3.9 Detailed Literature Review – Source 5</span><span class="dots"></span><span class="p">{{s3-9}}</span></div>
+  <div class="row l2"><span class="t">3.10 Literature Review Comparison Table</span><span class="dots"></span><span class="p">{{s3-10}}</span></div>
+  <div class="row l2"><span class="t">3.11 Critical Comparative Analysis</span><span class="dots"></span><span class="p">{{s3-11}}</span></div>
+  <div class="row l2"><span class="t">3.12 Research / Project Gap</span><span class="dots"></span><span class="p">{{s3-12}}</span></div>
+  <div class="row l2"><span class="t">3.13 Literature-to-Project Mapping</span><span class="dots"></span><span class="p">{{s3-13}}</span></div>
+  <div class="row l2"><span class="t">3.14 Literature Review Conclusion</span><span class="dots"></span><span class="p">{{s3-14}}</span></div>
+  <div class="row l1"><span class="t">4. Project Feasibility</span><span class="dots"></span><span class="p">{{s4}}</span></div>
+  <div class="row l2"><span class="t">4.1 Technical Feasibility</span><span class="dots"></span><span class="p">{{s4-1}}</span></div>
+  <div class="row l2"><span class="t">4.2 Tools, Technologies, Algorithms and Formulas</span><span class="dots"></span><span class="p">{{s4-2}}</span></div>
+  <div class="row l3"><span class="t">4.2.1 Algorithms and Computational Methods</span><span class="dots"></span><span class="p">{{s4-2-1}}</span></div>
+  <div class="row l3"><span class="t">4.2.2 Mathematical Formulas / Models</span><span class="dots"></span><span class="p">{{s4-2-2}}</span></div>
+  <div class="row l2"><span class="t">4.3 Resource Feasibility</span><span class="dots"></span><span class="p">{{s4-3}}</span></div>
+  <div class="row l2"><span class="t">4.4 Time Feasibility</span><span class="dots"></span><span class="p">{{s4-4}}</span></div>
+  <div class="row l2"><span class="t">4.5 Cost / Budget Feasibility</span><span class="dots"></span><span class="p">{{s4-5}}</span></div>
+  <div class="row l1"><span class="t">5. Description of Project Concept</span><span class="dots"></span><span class="p">{{s5}}</span></div>
+  <div class="row l2"><span class="t">5.1 Proposed Solution</span><span class="dots"></span><span class="p">{{s5-1}}</span></div>
+  <div class="row l2"><span class="t">5.2 Working Principle / Workflow</span><span class="dots"></span><span class="p">{{s5-2}}</span></div>
+  <div class="row l2"><span class="t">5.3 System Modules</span><span class="dots"></span><span class="p">{{s5-3}}</span></div>
+  <div class="row l2"><span class="t">5.4 High-Level Design / System Architecture</span><span class="dots"></span><span class="p">{{s5-4}}</span></div>
+  <div class="row l2"><span class="t">5.5 Low-Level Design of Each Module</span><span class="dots"></span><span class="p">{{s5-5}}</span></div>
+  <div class="row l3"><span class="t">5.5.1 Low-Level Design – Module 1</span><span class="dots"></span><span class="p">{{s5-5-1}}</span></div>
+  <div class="row l3"><span class="t">5.5.2 Low-Level Design – Module 2</span><span class="dots"></span><span class="p">{{s5-5-2}}</span></div>
+  <div class="row l3"><span class="t">5.5.3 Low-Level Design – Module 3</span><span class="dots"></span><span class="p">{{s5-5-3}}</span></div>
+  <div class="row l3"><span class="t">5.5.4 Low-Level Design – Module 4</span><span class="dots"></span><span class="p">{{s5-5-4}}</span></div>
+  <div class="row l3"><span class="t">5.5.5 Low-Level Design – Module 5</span><span class="dots"></span><span class="p">{{s5-5-5}}</span></div>
+  <div class="row l1"><span class="t">6. Roadmap and Distribution of Work</span><span class="dots"></span><span class="p">{{s6}}</span></div>
+  <div class="row l2"><span class="t">6.1 Project Roadmap</span><span class="dots"></span><span class="p">{{s6-1}}</span></div>
+  <div class="row l2"><span class="t">6.2 Major Milestones</span><span class="dots"></span><span class="p">{{s6-2}}</span></div>
+  <div class="row l2"><span class="t">6.3 Team-Wise Distribution of Work</span><span class="dots"></span><span class="p">{{s6-3}}</span></div>
+  <div class="row l2"><span class="t">6.4 Responsibility Matrix</span><span class="dots"></span><span class="p">{{s6-4}}</span></div>
+  <div class="row l1"><span class="t">7. Conclusion</span><span class="dots"></span><span class="p">{{s7}}</span></div>
+  <div class="row l1"><span class="t">8. References</span><span class="dots"></span><span class="p">{{s8}}</span></div>
+  <div class="row l1"><span class="t">A. Report Preparation and Presentation Guidelines</span><span class="dots"></span><span class="p">{{sA}}</span></div>
+  <div class="row l2"><span class="t">A.1 Project Proposal Report</span><span class="dots"></span><span class="p">{{sA-1}}</span></div>
+  <div class="row l2"><span class="t">A.2 Communication / Presentation – PO10</span><span class="dots"></span><span class="p">{{sA-2}}</span></div>
+  <div class="row l2"><span class="t">A.3 Reference Quality Checklist</span><span class="dots"></span><span class="p">{{sA-3}}</span></div>
+  <div class="row l2"><span class="t">A.4 Final Student Check / Submission Checklist</span><span class="dots"></span><span class="p">{{sA-4}}</span></div>
+</div>
+</section>
+
+<!-- ============================ 1. ABSTRACT ============================ -->
+<section class="chapter">
+<h1 id="s1">1. Abstract</h1>
+<p>Large quantities of edible food are thrown away every day in college campuses. Cafeterias, hostel messes, canteens and nearby restaurants prepare food in bulk against uncertain demand, and whatever is left at the end of a service is usually discarded, even though students on the same campus and NGOs in the surrounding area could use it. The surplus exists, the people who need it exist, but there is no fast, trusted channel that connects the two before the food spoils.</p>
+<p>This project proposes <b>FoodWise – Stop Wasting Food in College</b>, a web-based surplus food redistribution platform designed for a university campus. FoodWise connects three types of users: <b>food providers</b> (cafeterias, hostel messes and restaurants), <b>students</b> and <b>NGOs</b>. Providers publish surplus food as listings that contain a photograph, quantity, category, dietary type, preparation time, pickup location and a collection deadline. Students and NGOs discover nearby food using search and filters, send a request for a specific quantity, and collect the food after the provider approves the request.</p>
+<p>The system keeps stock accurate at all times: an approval reserves the requested quantity, a rejection or cancellation returns it, and a pickup is confirmed only when the requester presents a one-time pickup code. Listings whose deadline has passed are expired automatically, and users receive notifications for approvals, rejections and approaching deadlines. Every completed pickup is converted into measurable impact – meals rescued, kilograms of food saved and CO₂-equivalent emissions avoided – which is shown on an impact analytics dashboard and a leaderboard that recognises the most active providers and recipients.</p>
+<p>The platform is built as a responsive web application using React, TypeScript and Tailwind CSS on the frontend, a Node.js/Express REST API, a PostgreSQL database accessed through the Prisma ORM, JSON Web Token (JWT) based authentication with role-based access control, Recharts for analytics and Cloudinary for image storage. FoodWise aims to turn campus food surplus from a waste problem into a coordinated, trackable and rewarding act of sharing.</p>
+</section>
+
+<!-- ============================ 2. INTRODUCTION ============================ -->
+<section class="chapter">
+<h1 id="s2">2. Introduction</h1>
+<h2 id="s2-1">2.1 Clarity of Problem Definition</h2>
+<p>The problem addressed by this project is the absence of a fast, structured and trustworthy channel through which surplus cooked and packaged food on a college campus can reach students and NGOs before it is wasted.</p>
+<ul>
+  <li><b>Problem addressed:</b> edible surplus food from cafeterias, hostel messes and restaurants is discarded at the end of service because there is no timely way to offer it to people who could eat it.</li>
+  <li><b>Intended users:</b> food providers (campus cafeterias, hostel messes, cafés, bakeries and nearby restaurants), students, and NGOs / community kitchens.</li>
+  <li><b>Current difficulties:</b> surplus is announced informally (word of mouth or messaging groups), quantities are not tracked, several people may turn up for the same food, and nobody knows how much food was actually saved.</li>
+  <li><b>Need for a technological solution:</b> surplus food is perishable and time-bound; only a real-time system with live quantities, deadlines and notifications can match supply and demand within the short window in which the food is still safe and useful.</li>
+  <li><b>Limitations of existing solutions:</b> general food-sharing apps are open to the public and are not organised around campus roles, controlled approval, verified pickup or institutional impact reporting.</li>
+</ul>
+
+<h2 id="s2-2">2.2 Background and Context</h2>
+<p>Food waste is a global sustainability problem. The Food and Agriculture Organization (FAO) estimated that roughly one-third of the food produced for human consumption is lost or wasted [1], and the UNEP Food Waste Index Report 2024 estimates that about 1.05 billion tonnes of food were wasted at the retail, food-service and household levels in 2022 [6]. Wasted food also wastes the land, water and energy used to produce it and contributes to greenhouse-gas emissions [7].</p>
+<p>A college campus is a concentrated version of this problem. Institutional kitchens cook for hundreds or thousands of people every day and must prepare food in advance of uncertain attendance – holidays, examinations, events and weather all change how many students eat. Studies of university dining facilities show that a considerable amount of food is wasted at the preparation and serving stages as well as on plates [3]. At the same time, many students live on tight budgets and NGOs working near the campus run community kitchens and shelters that depend on donated food.</p>
+<p>FoodWise is proposed as a campus-focused redistribution platform that places providers, students and NGOs in one system. It allows surplus to be listed within seconds, discovered immediately, requested in exact quantities and collected in a controlled, verifiable way – and it measures the result.</p>
+
+<h2 id="s2-3">2.3 Problem Statement</h2>
+<p>Campus food providers regularly produce edible surplus food that is discarded because there is no quick and reliable mechanism to offer it to students and NGOs before it expires. Informal sharing through messaging groups does not track quantities, cannot prevent over-claiming, gives providers no control over who collects the food, and produces no record of the food that was saved.</p>
+<p>Therefore, there is a need for a centralised, role-based web platform in which providers can publish surplus food with quantity and deadline information, students and NGOs can discover and request it, providers can approve requests while the system keeps the available quantity correct, pickups can be verified, outdated listings are expired automatically, and the environmental and social impact of every rescued meal is measured and reported.</p>
+
+<h2 id="s2-4">2.4 Existing Situation and Problem Gap</h2>
+<p>Today, surplus food on campus is handled mostly through informal and manual practices: staff take leftovers home, mess managers post a message in a hostel group, a nearby NGO is called occasionally, or – most often – the food is simply thrown away. General-purpose food-sharing apps exist, but they target households and the general public. The following limitations can be identified:</p>
+<ul>
+  <li>There is no single place where all campus food providers can publish surplus food.</li>
+  <li>Announcements in messaging groups disappear quickly and do not show the remaining quantity.</li>
+  <li>Several people may claim the same food, causing disputes and wasted trips.</li>
+  <li>Providers cannot approve or reject requests or verify who actually collected the food.</li>
+  <li>There is no automatic handling of collection deadlines; old posts remain visible after the food is no longer safe.</li>
+  <li>NGOs that can collect bulk quantities are not systematically connected to campus kitchens.</li>
+  <li>No data is recorded on how many meals, kilograms of food or emissions were saved.</li>
+</ul>
+<div class="callout"><b>Proposed Gap:</b> FoodWise addresses this gap by combining <b>role-based accounts + surplus food listings + search and discovery + quantity-safe request approval + verified pickup + automatic expiry + notifications + impact analytics and leaderboard</b> within one platform designed around campus food providers, students and NGOs.</div>
+
+<h2 id="s2-5">2.5 Need and Significance</h2>
+<p>The project is significant because it converts food that would otherwise be wasted into meals, while creating an accountable record of the impact. The expected benefits are:</p>
+<ul>
+  <li>Reduces the amount of edible food discarded by campus kitchens and nearby restaurants.</li>
+  <li>Gives students free access to fresh meals and snacks and supports students on limited budgets.</li>
+  <li>Connects NGOs to a reliable source of bulk surplus food for community kitchens and shelters.</li>
+  <li>Gives providers full control: they decide who receives food and verify each pickup with a code.</li>
+  <li>Reduces greenhouse-gas emissions associated with wasted food and supports campus sustainability goals.</li>
+  <li>Produces measurable data (meals, kilograms, CO₂e, pickups) for institutional reporting and awareness.</li>
+  <li>Encourages a culture of sharing through recognition on a public leaderboard.</li>
+</ul>
+
+<h2 id="s2-6">2.6 Objectives</h2>
+<p>The major objectives of the proposed project are:</p>
+<ol>
+  <li>To design and develop a responsive campus food redistribution web application named FoodWise.</li>
+  <li>To provide secure, role-based authentication with separate dashboards for providers, students and NGOs.</li>
+  <li>To allow providers to create food listings with image, quantity, category, dietary type, preparation time, pickup location and deadline.</li>
+  <li>To enable students and NGOs to discover available food through keyword search, category and dietary filters and sorting.</li>
+  <li>To implement a request system in which providers approve or reject requests and available quantities update correctly and consistently.</li>
+  <li>To verify every pickup with a one-time code and to expire outdated listings automatically.</li>
+  <li>To notify users about approvals, rejections, cancellations and approaching deadlines.</li>
+  <li>To measure and visualise impact – meals rescued, food saved, CO₂e avoided, pickups and partner vendors – and to rank contributors on a leaderboard.</li>
+</ol>
+
+<h2 id="s2-7">2.7 Scope of Project</h2>
+<p><b>In Scope</b></p>
+<ul>
+  <li>Registration, login and profile management for providers, students and NGOs.</li>
+  <li>Role-based access control and role-specific dashboards.</li>
+  <li>Creation, editing, withdrawal and image upload of surplus food listings.</li>
+  <li>Discovery page with search, category and dietary filters and sort options.</li>
+  <li>Food details page with request form, request status and pickup code.</li>
+  <li>Request approval, rejection, cancellation and code-verified pickup confirmation.</li>
+  <li>Automatic expiry of listings past their deadline and deadline reminders.</li>
+  <li>In-app notifications with unread count.</li>
+  <li>Impact analytics dashboard (global and personal) and leaderboard.</li>
+  <li>Responsive interface for desktop and mobile browsers; realistic sample data for demonstration.</li>
+</ul>
+<p><b>Out of Scope</b></p>
+<ul>
+  <li>Certifying food safety or hygiene; food quality remains the responsibility of the provider.</li>
+  <li>Delivery or logistics services; recipients collect food from the pickup location.</li>
+  <li>Payments or the sale of discounted food in the initial prototype.</li>
+  <li>Native mobile applications and SMS/e-mail notifications (planned as future work).</li>
+  <li>Integration with official university ERP or mess-management systems.</li>
+</ul>
+<p><b>Target Users</b></p>
+<ul>
+  <li>Campus cafeterias, hostel messes, cafés and bakeries</li>
+  <li>Restaurants located near the campus</li>
+  <li>Students (day scholars and hostel residents)</li>
+  <li>NGOs, food banks and community kitchens</li>
+  <li>Campus sustainability coordinators who use the impact data</li>
+</ul>
+<p><b>Deployment Environment</b></p>
+<p>The system is deployed as a web application accessible through modern browsers on laptops and mobile phones. The React frontend can be hosted as a static site, the Express API on a Node.js server or cloud platform, the database on a managed PostgreSQL service, and food images on Cloudinary. A university deployment can later use institutional login and university-managed hosting.</p>
+<p><b>Key Assumptions</b></p>
+<ul>
+  <li>Providers list only food that is safe to eat and enter accurate quantities and deadlines.</li>
+  <li>Recipients collect approved food from the stated location before the deadline.</li>
+  <li>Users have access to a web browser and an internet connection.</li>
+  <li>The database securely stores accounts, listings, requests and notifications.</li>
+  <li>An average emission factor is sufficient to estimate the CO₂e avoided by rescued food.</li>
+</ul>
+</section>
+
+<!-- ============================ 3. LITERATURE ============================ -->
+<section class="chapter">
+<h1 id="s3">3. Study of Literature Survey</h1>
+<h2 id="s3-1">3.1 Purpose of Literature Survey</h2>
+<p>The literature survey establishes the foundation for understanding food waste, its measurement, its causes in institutional settings, and the role of digital food-sharing platforms in redistribution. It is conducted to:</p>
+<ul>
+  <li>Understand the scale and causes of food loss and waste.</li>
+  <li>Study how food waste is defined and quantified along the supply chain.</li>
+  <li>Examine food waste generation in university dining facilities.</li>
+  <li>Review existing models of food-sharing and redistribution platforms.</li>
+  <li>Study how digital applications support redistribution between businesses and individuals.</li>
+  <li>Identify requirements for quantity control, time-bound pickup and impact measurement.</li>
+  <li>Derive the research / project gap for FoodWise.</li>
+</ul>
+
+<h2 id="s3-2">3.2 Literature Search Strategy</h2>
+<p>Table 1 lists the keyword categories used, and Table 2 summarises the overall search approach. The databases searched were ScienceDirect, SpringerLink, Royal Society Publishing, IEEE Xplore, Google Scholar and the publication repositories of FAO and UNEP.</p>
+<p class="cap">Table 1: Literature Search Keywords</p>
+<table class="t">
+  <tr><th style="width:30%">Category</th><th>Keywords</th></tr>
+  <tr><td>Food waste</td><td>food loss and waste, food waste quantification, food supply chain waste</td></tr>
+  <tr><td>Institutional waste</td><td>university dining waste, campus food waste, hostel mess food waste</td></tr>
+  <tr><td>Redistribution</td><td>surplus food redistribution, food donation, food banks</td></tr>
+  <tr><td>Food sharing</td><td>food sharing platforms, food sharing apps, sharing economy</td></tr>
+  <tr><td>Environmental impact</td><td>food wastage footprint, greenhouse-gas emissions of food waste</td></tr>
+  <tr><td>Platforms</td><td>mobile applications for food waste reduction, peer-to-peer food sharing</td></tr>
+</table>
+<p class="cap">Table 2: Literature Search Strategy</p>
+<table class="t">
+  <tr><th style="width:30%">Item</th><th>FoodWise-oriented Approach</th></tr>
+  <tr><td>Databases</td><td>ScienceDirect, SpringerLink, Royal Society Publishing, IEEE Xplore, Google Scholar, FAO and UNEP repositories</td></tr>
+  <tr><td>Keywords</td><td>Food waste, campus food waste, surplus redistribution, food sharing apps, food wastage footprint</td></tr>
+  <tr><td>Publication Period</td><td>Foundational studies (2010 onwards) plus recent reports on food waste and food-sharing platforms</td></tr>
+  <tr><td>Initially Identified</td><td>Approximately 20–30 potentially relevant sources</td></tr>
+  <tr><td>Finally Selected</td><td>5 core sources reviewed in detail, plus 2 supporting reports</td></tr>
+  <tr><td>Inclusion Criteria</td><td>Peer-reviewed papers, reports of recognised international organisations and credible platform studies</td></tr>
+  <tr><td>Exclusion Criteria</td><td>Unverified articles, duplicate studies and sources unrelated to food waste or redistribution</td></tr>
+</table>
+
+<h2 id="s3-3">3.3 Source Selection Criteria</h2>
+<p>Sources were selected based on:</p>
+<ul>
+  <li>Relevance to food waste generation, measurement or reduction.</li>
+  <li>Technical or academic credibility.</li>
+  <li>Peer-reviewed publication or publication by a recognised international organisation.</li>
+  <li>Relevance to institutional and campus food services.</li>
+  <li>Relevance to food sharing and redistribution platforms.</li>
+  <li>Relevance to environmental impact measurement.</li>
+  <li>Recency for platform and technology-related evidence.</li>
+</ul>
+
+<h2 id="s3-4">3.4 How Each Literature Source Is Analysed</h2>
+<p>For every major source, the following aspects are discussed: author(s) and year; complete title; journal or publisher; problem addressed; methodology or conceptual framework; major results; strengths; limitations; relevance to the proposed project; and the gap that remains after the study.</p>
+
+<h2 id="s3-5">3.5 Detailed Literature Review – Source 1</h2>
+<p class="lit-title">Global Food Losses and Food Waste – Extent, Causes and Prevention</p>
+<p><b>Authors / Year:</b> Jenny Gustavsson, Christel Cederberg, Ulf Sonesson, Robert van Otterdijk and Alexandre Meybeck, 2011</p>
+<p><b>Publication:</b> Food and Agriculture Organization of the United Nations (FAO), Rome. [1]</p>
+<p><b>Problem Addressed:</b> The study estimates the extent of food loss and waste across the global food supply chain and discusses its causes and possible prevention measures.</p>
+<p><b>Methodology / Approach:</b> Food balance data were combined with loss and waste percentages from the literature for different regions, commodity groups and supply-chain stages to estimate the mass of food lost or wasted.</p>
+<p><b>Major Findings:</b> Roughly one-third of the food produced for human consumption is lost or wasted globally. In medium- and high-income settings a significant share of waste occurs at the consumption stage, including food services, where edible food is discarded even though it is still fit for consumption.</p>
+<p><b>Strengths:</b></p>
+<ul>
+  <li>Provides a widely cited, global estimate of the scale of the problem.</li>
+  <li>Distinguishes losses and waste at different supply-chain stages.</li>
+  <li>Discusses causes and prevention strategies.</li>
+</ul>
+<p><b>Limitations:</b> The study works at a macro level and does not propose an operational mechanism for redistributing surplus food at the local or institutional level.</p>
+<p><b>Relevance to Proposed Project:</b> It establishes that consumption-stage and food-service waste is significant and preventable, which justifies a tool aimed at campus food services.</p>
+<p><b>Gap Identified:</b> The source does not provide a practical, real-time system that connects surplus at individual kitchens to people who can use it. FoodWise addresses this at campus scale.</p>
+
+<h2 id="s3-6">3.6 Detailed Literature Review – Source 2</h2>
+<p class="lit-title">Food waste within food supply chains: quantification and potential for change to 2050</p>
+<p><b>Authors / Year:</b> Julian Parfitt, Mark Barthel and Sarah Macnaughton, 2010</p>
+<p><b>Publication:</b> Philosophical Transactions of the Royal Society B, 365(1554), 3065–3081. [2]</p>
+<p><b>Problem Addressed:</b> The paper reviews how food waste is defined and quantified along food supply chains and how it may change in the future.</p>
+<p><b>Methodology / Approach:</b> A structured review of available data, definitions and studies on food waste in developed and developing countries, with a discussion of drivers such as urbanisation and changing diets.</p>
+<p><b>Major Findings:</b> Food waste data are often incomplete and inconsistent because of different definitions and measurement methods. In industrialised settings, much of the waste occurs close to the consumer, and reliable measurement is necessary to target interventions.</p>
+<p><b>Strengths:</b></p>
+<ul>
+  <li>Clarifies definitions of food loss and food waste.</li>
+  <li>Highlights the importance of consistent, quantitative measurement.</li>
+  <li>Provides a long-term perspective on drivers of waste.</li>
+</ul>
+<p><b>Limitations:</b> The paper is a review and does not design or evaluate a specific technological intervention.</p>
+<p><b>Relevance to Proposed Project:</b> It supports FoodWise’s decision to record every rescued quantity in standard units and convert it into kilograms, so that impact is measured rather than assumed.</p>
+<p><b>Gap Identified:</b> Measurement is presented as essential, but no tool is proposed that captures redistribution data automatically at the point of pickup.</p>
+
+<h2 id="s3-7">3.7 Detailed Literature Review – Source 3</h2>
+<p class="lit-title">Food waste generation and potential interventions at Rhodes University, South Africa</p>
+<p><b>Authors / Year:</b> Kristen Painter, Gladman Thondhlana and Harn Wei Kua, 2016</p>
+<p><b>Publication:</b> Waste Management, 56, 491–497. [3]</p>
+<p><b>Problem Addressed:</b> The study examines how much food is wasted in university dining halls and which interventions could reduce it.</p>
+<p><b>Methodology / Approach:</b> Food waste was measured in campus dining halls and combined with information from students and staff to understand where waste occurs and why.</p>
+<p><b>Major Findings:</b> University dining facilities generate considerable food waste at the preparation, serving and plate stages. The authors suggest interventions such as awareness campaigns, better portioning and improved planning.</p>
+<p><b>Strengths:</b></p>
+<ul>
+  <li>Directly studies a university campus setting.</li>
+  <li>Uses measured data rather than estimates.</li>
+  <li>Identifies practical interventions for institutional kitchens.</li>
+</ul>
+<p><b>Limitations:</b> The study focuses on reducing waste at the source; it does not address what should happen to edible surplus that still remains after service.</p>
+<p><b>Relevance to Proposed Project:</b> It confirms that campus kitchens produce recurring surplus and that a campus-level intervention is meaningful. FoodWise complements source-reduction measures by redistributing the remaining edible surplus.</p>
+<p><b>Gap Identified:</b> A digital redistribution channel that links campus kitchens with students and NGOs is not part of the proposed interventions.</p>
+
+<h2 id="s3-8">3.8 Detailed Literature Review – Source 4</h2>
+<p class="lit-title">Understanding food sharing models to tackle sustainability challenges</p>
+<p><b>Authors / Year:</b> Laura Michelini, Ludovica Principato and Gennaro Iasevoli, 2018</p>
+<p><b>Publication:</b> Ecological Economics, 145, 205–217. [4]</p>
+<p><b>Problem Addressed:</b> The paper investigates the different business and organisational models used by food-sharing platforms and how they contribute to sustainability.</p>
+<p><b>Methodology / Approach:</b> A sample of food-sharing applications and platforms was analysed and classified according to their aims, the actors involved and the type of exchange.</p>
+<p><b>Major Findings:</b> Food-sharing platforms follow different models – for example sharing for charity, sharing for money and sharing for community – which differ in their participants, motivations and the social and environmental value they create.</p>
+<p><b>Strengths:</b></p>
+<ul>
+  <li>Provides a structured typology of food-sharing platforms.</li>
+  <li>Connects platform design with sustainability outcomes.</li>
+  <li>Useful for positioning a new platform among existing models.</li>
+</ul>
+<p><b>Limitations:</b> The study classifies platforms but does not address operational issues such as quantity reservation, deadlines or verification of pickups.</p>
+<p><b>Relevance to Proposed Project:</b> FoodWise follows a non-monetary “sharing for charity and community” model inside a defined community (the campus), with providers, students and NGOs as distinct roles.</p>
+<p><b>Gap Identified:</b> A model tailored to an institutional community with controlled approval and measurable impact is not described.</p>
+
+<h2 id="s3-9">3.9 Detailed Literature Review – Source 5</h2>
+<p class="lit-title">Food sharing, redistribution, and waste reduction via mobile applications: A social network analysis</p>
+<p><b>Authors / Year:</b> John Harvey, Andrew Smith, James Goulding and Ines Branco Illodo, 2020</p>
+<p><b>Publication:</b> Industrial Marketing Management, 88, 437–448. [5]</p>
+<p><b>Problem Addressed:</b> The study analyses how food is actually shared and redistributed through a mobile food-sharing application, including surplus collected from businesses.</p>
+<p><b>Methodology / Approach:</b> Transaction data from a food-sharing app were analysed using social network analysis to study the structure of exchanges between users.</p>
+<p><b>Major Findings:</b> Redistribution activity is concentrated among a relatively small group of highly active participants, and surplus from businesses forms an important source of shared food. The structure of the network influences how much food is redistributed.</p>
+<p><b>Strengths:</b></p>
+<ul>
+  <li>Uses real platform data rather than surveys alone.</li>
+  <li>Shows the importance of business surplus and active intermediaries.</li>
+  <li>Provides insight into user engagement on sharing platforms.</li>
+</ul>
+<p><b>Limitations:</b> The platform studied is open to the general public; it does not focus on institutional providers, controlled approvals or impact reporting for an institution.</p>
+<p><b>Relevance to Proposed Project:</b> It supports FoodWise’s focus on business/institutional providers, its NGO role for bulk collection, and the use of a leaderboard to recognise and retain highly active participants.</p>
+<p><b>Gap Identified:</b> The reviewed sources do not define a single campus-focused platform that combines role-based accounts, quantity-safe approvals, verified pickups, automatic expiry and impact analytics.</p>
+
+<h2 id="s3-10">3.10 Literature Review Comparison Table</h2>
+<p>Table 3 compares the reviewed sources.</p>
+<p class="cap">Table 3: Comparison of Reviewed Literature</p>
+<table class="t">
+  <tr><th class="c" style="width:7%">S. No.</th><th style="width:19%">Source</th><th style="width:22%">Main Focus</th><th style="width:28%">Contribution to FoodWise</th><th>Remaining Gap</th></tr>
+  <tr><td class="c">1</td><td>Gustavsson et al., 2011</td><td>Global scale and causes of food loss and waste</td><td>Justifies targeting food-service surplus</td><td>No local redistribution mechanism</td></tr>
+  <tr><td class="c">2</td><td>Parfitt et al., 2010</td><td>Definition and quantification of food waste</td><td>Supports kg-based impact measurement</td><td>No automated data capture</td></tr>
+  <tr><td class="c">3</td><td>Painter et al., 2016</td><td>Food waste in university dining</td><td>Confirms recurring campus surplus</td><td>No redistribution of remaining surplus</td></tr>
+  <tr><td class="c">4</td><td>Michelini et al., 2018</td><td>Models of food-sharing platforms</td><td>Positions FoodWise as a community / charity model</td><td>No operational workflow (quantity, deadline, verification)</td></tr>
+  <tr><td class="c">5</td><td>Harvey et al., 2020</td><td>Redistribution through a food-sharing app</td><td>Supports business providers, NGOs and engagement features</td><td>Not institution-focused; no impact reporting</td></tr>
+</table>
+
+<h2 id="s3-11">3.11 Critical Comparative Analysis</h2>
+<p>The reviewed literature shows that food waste is large in scale, that a significant share of it happens close to the consumer, including in food services, and that university dining facilities in particular produce recurring surplus. It also shows that reliable measurement is necessary if waste-reduction efforts are to be evaluated.</p>
+<p>Research on food-sharing platforms shows that digital tools can redistribute surplus, that business surplus is an important source, and that a small group of active participants often drives most of the activity. Different platform models create different kinds of value, and a community-oriented, non-monetary model is well suited to a campus.</p>
+<p>However, general food-sharing apps are open to everyone and focus on matching individual items. A campus setting requires additional properties: clearly defined roles, provider control over who receives food, protection against over-claiming of limited quantities, enforcement of short collection deadlines, verification of handover and institution-level impact reporting.</p>
+<p><b>Overall comparison:</b> existing research has addressed individual aspects:</p>
+<p class="flow">Scale of food waste → Measurement → Campus dining waste → Food-sharing models → App-based redistribution</p>
+<p>However, these capabilities are not combined in the reviewed sources into one campus-focused system that links surplus listings, controlled requests, verified pickup and measured impact. This creates an opportunity for the proposed FoodWise architecture.</p>
+
+<h2 id="s3-12">3.12 Research / Project Gap</h2>
+<p>Based on the reviewed literature, the following project gap has been identified: existing research explains the scale and causes of food waste, the importance of measurement, the surplus generated by university dining facilities and the potential of food-sharing apps, but <b>a focused campus platform that integrates role-based providers, students and NGOs, structured surplus listings, quantity-safe request approval, code-verified pickup, automatic expiry, notifications and impact analytics</b> is not addressed as one unified system in the reviewed sources.</p>
+<p>The proposed project therefore focuses on integrating these functions into one accessible web platform. The proposed contribution is:</p>
+<div class="flow">
+  Role-Based Registration (Provider / Student / NGO)<span class="arrow">↓</span>
+  Surplus Food Listing (quantity, category, pickup, deadline)<span class="arrow">↓</span>
+  Search &amp; Discovery<span class="arrow">↓</span>
+  Request → Approval with Stock Reservation<span class="arrow">↓</span>
+  Code-Verified Pickup<span class="arrow">↓</span>
+  Notifications &amp; Automatic Expiry<span class="arrow">↓</span>
+  Impact Analytics &amp; Leaderboard
+</div>
+
+<h2 id="s3-13">3.13 Literature-to-Project Mapping</h2>
+<p>Table 4 links the literature insights to specific FoodWise design decisions.</p>
+<p class="cap">Table 4: Mapping of Literature Findings to Project Components</p>
+<table class="t">
+  <tr><th style="width:34%">Literature Insight</th><th style="width:28%">Project Decision</th><th>Justification</th></tr>
+  <tr><td>A large share of waste occurs in food services [1]</td><td>Provider role for cafeterias, messes and restaurants</td><td>Targets the point where surplus is created</td></tr>
+  <tr><td>Reliable measurement is essential [2]</td><td>Quantity, unit and kg-per-unit stored for each listing</td><td>Enables meals, kg and CO₂e to be calculated automatically</td></tr>
+  <tr><td>Campus dining produces recurring surplus [3]</td><td>Quick listing form with deadline shortcuts</td><td>Makes daily listing practical for kitchen staff</td></tr>
+  <tr><td>Community / charity sharing models create social value [4]</td><td>Free, non-monetary redistribution to students and NGOs</td><td>Fits the campus community and NGO partners</td></tr>
+  <tr><td>Business surplus and active users drive redistribution [5]</td><td>NGO bulk requests and leaderboard</td><td>Moves large quantities and rewards engagement</td></tr>
+  <tr><td>Food is perishable and time-bound [1], [3]</td><td>Deadlines, reminders and automatic expiry</td><td>Prevents collection of unsafe or outdated food</td></tr>
+  <tr><td>Wasted food carries an emissions footprint [7]</td><td>CO₂e avoided on the impact dashboard</td><td>Communicates environmental value to users</td></tr>
+</table>
+
+<h2 id="s3-14">3.14 Literature Review Conclusion</h2>
+<p>The literature review establishes that food waste is a significant global problem with a large share occurring in food services and close to the consumer, and that university dining facilities generate recurring surplus. It also establishes that measurement is necessary to evaluate interventions, and that digital food-sharing platforms can redistribute surplus, especially surplus from businesses, when they successfully engage active participants.</p>
+<p>These findings provide the basis for designing a campus-specific platform in which surplus is listed by institutional providers, matched to students and NGOs, controlled through approvals and verified pickups, and measured automatically. Deadlines and expiry address the perishable nature of food, while the leaderboard supports sustained engagement.</p>
+<p>The principal project gap identified from the reviewed sources is therefore the integration of surplus listing, controlled redistribution and impact measurement into a single campus-focused system. FoodWise aims to address this gap through an architecture combining <b>role-based authentication, food listings, discovery, a quantity-safe request system, notifications, automatic expiry, impact analytics and a leaderboard</b>.</p>
+</section>
+
+<!-- ============================ 4. FEASIBILITY ============================ -->
+<section class="chapter">
+<h1 id="s4">4. Project Feasibility</h1>
+<h2 id="s4-1">4.1 Technical Feasibility</h2>
+<p>The proposed system can be implemented using standard, freely available, open-source web technologies. Table 5 summarises the technical feasibility of each component.</p>
+<p class="cap">Table 5: Technical Feasibility</p>
+<table class="t">
+  <tr><th style="width:24%">Component</th><th style="width:40%">Requirement</th><th>Availability / Feasibility</th></tr>
+  <tr><td>Hardware</td><td>Laptop / PC for development and testing; smartphone for mobile testing</td><td>Available</td></tr>
+  <tr><td>Software</td><td>Node.js runtime, code editor / IDE, modern web browser</td><td>Freely available</td></tr>
+  <tr><td>Database</td><td>Relational database (PostgreSQL)</td><td>Open source; managed cloud options available</td></tr>
+  <tr><td>Development Platform</td><td>Git / GitHub for version control; npm for packages</td><td>Freely available</td></tr>
+  <tr><td>Internet / Network</td><td>Broadband for development and deployment</td><td>Available</td></tr>
+  <tr><td>APIs / Services</td><td>Cloudinary image hosting; hosting for API and frontend</td><td>Free or student-tier options available</td></tr>
+</table>
+
+<h2 id="s4-2">4.2 Tools, Technologies, Algorithms and Formulas</h2>
+<p>Table 6 lists the tools and technologies selected for FoodWise.</p>
+<p class="cap">Table 6: Tools and Technologies Required</p>
+<table class="t">
+  <tr><th style="width:24%">Category</th><th style="width:36%">Tool / Technology</th><th>Purpose</th></tr>
+  <tr><td>Programming Language</td><td>TypeScript</td><td>Type-safe client-side and server-side code</td></tr>
+  <tr><td>Frontend</td><td>React, Tailwind CSS, React Router, Framer Motion</td><td>Responsive single-page interface, routing and animations</td></tr>
+  <tr><td>Backend</td><td>Node.js with Express</td><td>REST API for authentication, listings, requests, notifications, impact and leaderboard</td></tr>
+  <tr><td>Database</td><td>PostgreSQL with Prisma ORM</td><td>Structured storage of users, listings, requests and notifications; schema and queries</td></tr>
+  <tr><td>Authentication</td><td>JSON Web Tokens (JWT), bcrypt</td><td>Stateless sessions, role-based access control, password hashing</td></tr>
+  <tr><td>Validation</td><td>Zod</td><td>Validation of every request body and query</td></tr>
+  <tr><td>Charts</td><td>Recharts</td><td>Impact analytics charts (trend, category split, CO₂e)</td></tr>
+  <tr><td>Image Storage</td><td>Cloudinary (with Multer upload handling)</td><td>Hosting and delivery of food photographs</td></tr>
+  <tr><td>Development Tool</td><td>VS Code, Vite, Git / GitHub</td><td>Coding, fast builds and version control</td></tr>
+  <tr><td>Testing Tool</td><td>Browser developer tools, API client (curl / Postman)</td><td>Functional, API and responsive testing</td></tr>
+  <tr><td>Deployment Platform</td><td>Cloud hosting / local server</td><td>Prototype hosting and demonstration</td></tr>
+</table>
+
+<h3 id="s4-2-1">4.2.1 Algorithms and Computational Methods</h3>
+<p>Table 7 lists the algorithms and methods required by the project.</p>
+<p class="cap">Table 7: Algorithms / Methods</p>
+<table class="t">
+  <tr><th class="c" style="width:8%">S. No.</th><th style="width:38%">Algorithm / Method</th><th>Purpose</th></tr>
+  <tr><td class="c">1</td><td>Salted password hashing (bcrypt)</td><td>Securely store user credentials</td></tr>
+  <tr><td class="c">2</td><td>JWT signing and role-based access control</td><td>Authenticate requests and restrict actions by role (provider, student, NGO)</td></tr>
+  <tr><td class="c">3</td><td>Keyword search with multi-criteria filtering and sorting</td><td>Find food by title/description, category and dietary type; sort by deadline, newest or quantity</td></tr>
+  <tr><td class="c">4</td><td>Atomic conditional stock reservation (compare-and-decrement inside a transaction)</td><td>Prevent over-allocation when several requests are approved at the same time</td></tr>
+  <tr><td class="c">5</td><td>Finite state machine for requests</td><td>Enforce valid transitions: Pending → Approved → Collected; Rejected, Cancelled, Expired</td></tr>
+  <tr><td class="c">6</td><td>Scheduled expiry sweep (every 60 seconds)</td><td>Expire overdue listings and their open requests; send 60-minute deadline reminders</td></tr>
+  <tr><td class="c">7</td><td>Random one-time pickup code (4 digits) and verification</td><td>Confirm that food was handed to the approved requester</td></tr>
+  <tr><td class="c">8</td><td>Time-bucketed aggregation and weighted scoring</td><td>Weekly impact trends and leaderboard ranking</td></tr>
+</table>
+
+<h3 id="s4-2-2">4.2.2 Mathematical Formulas / Models</h3>
+<p>The quantity still available for a listing is the original quantity minus all reserved and collected quantities:</p>
+<p class="formula">Remaining = Quantity − Σ q<sub>r</sub> &nbsp;&nbsp;(for all requests r with status Approved or Collected)</p>
+<p>A request r for quantity q<sub>r</sub> can be approved only if the reservation condition holds; the check and the update are executed atomically:</p>
+<p class="formula">Approve(r) ⇔ Remaining ≥ q<sub>r</sub>; &nbsp; then Remaining ← Remaining − q<sub>r</sub></p>
+<p>Impact is calculated from collected requests only. For each collected request i with quantity q<sub>i</sub> and the listing’s weight per unit w<sub>i</sub> (kg):</p>
+<p class="formula">Meals Rescued = Σ q<sub>i</sub> &nbsp;&nbsp;&nbsp; Food Saved (kg) = Σ q<sub>i</sub> × w<sub>i</sub></p>
+<p>Avoided emissions are estimated using an average emission factor of 2.5 kg CO₂e per kg of food, consistent with the FAO food wastage footprint estimate [7]:</p>
+<p class="formula">CO₂e Avoided (kg) = Food Saved (kg) × 2.5</p>
+<p>The rescue rate measures the share of listings that did not expire, and the leaderboard score rewards both quantity and frequency of rescues:</p>
+<p class="formula">Rescue Rate (%) = (Total Listings − Expired Listings) / Total Listings × 100</p>
+<p class="formula">Points = 10 × Food Saved (kg) + 5 × Number of Pickups</p>
+
+<h2 id="s4-3">4.3 Resource Feasibility</h2>
+<p>Table 8 summarises the resources required for the project.</p>
+<p class="cap">Table 8: Resource Requirements</p>
+<table class="t">
+  <tr><th style="width:24%">Resource</th><th style="width:42%">Requirement</th><th>Availability</th></tr>
+  <tr><td>Human Resources</td><td>Two-member student team</td><td>Available</td></tr>
+  <tr><td>Hardware</td><td>Laptop / PC for development; smartphone for testing</td><td>Available</td></tr>
+  <tr><td>Software</td><td>Node.js, code editor / IDE, browser, Git / GitHub</td><td>Freely available</td></tr>
+  <tr><td>Data</td><td>Sample providers, recipients, listings and requests for testing and demonstration</td><td>Created during development (seed data)</td></tr>
+  <tr><td>Infrastructure</td><td>PostgreSQL database, image storage, hosting for prototype</td><td>Open source / free or student-tier cloud services</td></tr>
+</table>
+
+<h2 id="s4-4">4.4 Time Feasibility</h2>
+<p>The project can be completed within the available academic duration (approximately 14 weeks) by dividing it into the following stages:</p>
+<ol>
+  <li>Problem identification</li>
+  <li>Literature survey</li>
+  <li>Requirement analysis</li>
+  <li>UI and database design</li>
+  <li>Authentication and role management module</li>
+  <li>Food listing module with image upload</li>
+  <li>Discovery and search module</li>
+  <li>Request, approval and pickup module</li>
+  <li>Notifications and automatic expiry</li>
+  <li>Impact analytics and leaderboard</li>
+  <li>Integration</li>
+  <li>Testing</li>
+  <li>Deployment</li>
+  <li>Documentation and presentation</li>
+</ol>
+<p>This follows a structured development sequence of analysis, research, requirements, design, implementation, integration, testing and documentation.</p>
+
+<h2 id="s4-5">4.5 Cost / Budget Feasibility</h2>
+<p>An approximate prototype budget is given in Table 9. These are planning estimates, not final service prices; actual cost will depend on the selected hosting, domain and deployment configuration.</p>
+<p class="cap">Table 9: Estimated Prototype Budget</p>
+<table class="t" style="width:70%; margin-left:auto; margin-right:auto">
+  <tr><th>Component</th><th>Estimated Cost</th></tr>
+  <tr><td>Development tools / IDE</td><td>₹0 – ₹1,000</td></tr>
+  <tr><td>Database / API hosting</td><td>₹0 – ₹2,000</td></tr>
+  <tr><td>Image storage (Cloudinary)</td><td>₹0 – ₹1,000</td></tr>
+  <tr><td>Domain (optional)</td><td>₹500 – ₹1,500</td></tr>
+  <tr><td>Testing / deployment services</td><td>₹0 – ₹1,000</td></tr>
+  <tr><td>Design / documentation</td><td>₹0 – ₹500</td></tr>
+  <tr><td>Miscellaneous</td><td>₹300 – ₹1,000</td></tr>
+  <tr><td><b>Estimated Total</b></td><td><b>₹800 – ₹8,000</b></td></tr>
+</table>
+</section>
+
+<!-- ============================ 5. CONCEPT ============================ -->
+<section class="chapter">
+<h1 id="s5">5. Description of Project Concept</h1>
+<h2 id="s5-1">5.1 Proposed Solution</h2>
+<p>FoodWise is a web platform designed around the redistribution of surplus food on a college campus. Each user registers with one of three roles. A <b>provider</b> (cafeteria, hostel mess or restaurant) lists surplus food with a photograph, quantity and unit, category, dietary type, preparation time, pickup location and collection deadline. A <b>student</b> or <b>NGO</b> browses available food, opens a listing and requests a specific quantity – students up to three servings at a time, NGOs in bulk.</p>
+<p>The provider reviews incoming requests from a dashboard and approves or declines them. Approval immediately reserves the requested quantity so that the listing never shows more food than is truly available; if a listing becomes fully reserved, the remaining pending requests that can no longer be satisfied are declined automatically. On approval, the requester receives a one-time pickup code. At the counter, the provider enters this code to confirm the pickup, and only then is the food counted as rescued.</p>
+<p>A background job expires listings whose deadline has passed, closes their open requests and notifies the people affected, while approved recipients are reminded when less than an hour remains. Every collected request feeds the impact dashboard and the leaderboard. In summary:</p>
+<ul>
+  <li><b>Inputs:</b> registration details, food listings and images, search queries and filters, requests, approval decisions, pickup codes.</li>
+  <li><b>Processing:</b> validation, authentication and authorisation, stock reservation, state transitions, scheduled expiry, notification generation and impact aggregation.</li>
+  <li><b>Outputs:</b> role dashboards, discovery results, request status and pickup codes, notifications, impact charts and leaderboard rankings.</li>
+  <li><b>Users:</b> providers, students and NGOs; external services include image hosting (Cloudinary) and, in future, institutional login.</li>
+</ul>
+
+<h2 id="s5-2">5.2 Working Principle / Workflow</h2>
+<p>The complete working process of FoodWise is shown in Figure 1 and described below.</p>
+<ol>
+  <li><b>Registration:</b> A user creates an account and selects a role – provider, student or NGO. Providers and NGOs also enter their organisation name.</li>
+  <li><b>Food Listing:</b> A provider lists surplus food with photo, quantity, category, dietary type, preparation time, pickup location and deadline.</li>
+  <li><b>Discovery:</b> Students and NGOs search and filter active listings by keyword, category and dietary type and sort them by deadline, newest or quantity.</li>
+  <li><b>Request:</b> The recipient requests a quantity within the available amount and the role limit, optionally with a message.</li>
+  <li><b>Approval:</b> The provider approves or declines the request. Approval reserves stock atomically; a decline (with optional reason) leaves stock unchanged.</li>
+  <li><b>Notification:</b> The requester is notified of the decision. An approved requester receives the pickup code and location.</li>
+  <li><b>Pickup Verification:</b> At collection, the provider enters the requester’s code; a matching code marks the request as collected.</li>
+  <li><b>Automatic Expiry:</b> Listings past their deadline are expired and their open requests are closed; reminders are sent before deadlines.</li>
+  <li><b>Impact &amp; Leaderboard:</b> Collected quantities are converted into meals, kilograms and CO₂e and displayed on the impact dashboard and leaderboard.</li>
+</ol>
+<div class="fig">
+  <div class="vflow">
+    <div class="box">1. Registration &amp; Role Selection</div><div class="down">↓</div>
+    <div class="box">2. Provider Lists Surplus Food</div><div class="down">↓</div>
+    <div class="box">3. Discovery – Search &amp; Filters</div><div class="down">↓</div>
+    <div class="box">4. Student / NGO Requests Quantity</div><div class="down">↓</div>
+    <div class="box">5. Provider Approval – Stock Reserved</div><div class="down">↓</div>
+    <div class="box">6. Notification with Pickup Code</div><div class="down">↓</div>
+    <div class="box">7. Code-Verified Pickup</div><div class="down">↓</div>
+    <div class="box">8. Automatic Expiry &amp; Reminders</div><div class="down">↓</div>
+    <div class="box">9. Impact Dashboard &amp; Leaderboard</div>
+  </div>
+  <p class="figcap">Figure 1: Proposed Workflow of FoodWise</p>
+</div>
+
+<h2 id="s5-3">5.3 System Modules</h2>
+<p>The system is divided into five major modules, listed in Table 10.</p>
+<p class="cap">Table 10: Proposed System Modules</p>
+<table class="t">
+  <tr><th class="c" style="width:8%">S.No.</th><th style="width:30%">Module</th><th>Description</th></tr>
+  <tr><td class="c">1</td><td>Authentication &amp; Role Management Module</td><td>Handles registration, login, JWT sessions, profiles and role-based access control for providers, students and NGOs.</td></tr>
+  <tr><td class="c">2</td><td>Food Listing &amp; Expiry Module</td><td>Allows providers to create, edit and withdraw listings with images; expires overdue listings automatically.</td></tr>
+  <tr><td class="c">3</td><td>Discovery &amp; Search Module</td><td>Provides keyword search, category and dietary filters, sorting and the food details page.</td></tr>
+  <tr><td class="c">4</td><td>Request &amp; Pickup Module</td><td>Manages requests, approval with stock reservation, rejection, cancellation and code-verified pickup.</td></tr>
+  <tr><td class="c">5</td><td>Notification, Impact &amp; Leaderboard Module</td><td>Generates notifications and reminders, aggregates impact metrics and ranks contributors.</td></tr>
+</table>
+
+<h2 id="s5-4">5.4 High-Level Design / System Architecture</h2>
+<p>Figure 2 shows the high-level architecture of FoodWise. Users interact through a responsive React single-page application, which calls a REST API over HTTPS. The API authenticates every request with a JWT, applies role checks and routes it to one of the five modules, which read and write a central PostgreSQL database through the Prisma ORM. Food images are stored on Cloudinary, and a scheduled job inside the API process performs the expiry sweep. The design shows:</p>
+<ul>
+  <li>Major system modules.</li>
+  <li>External users (providers, students, NGOs).</li>
+  <li>Data flow between interface, API modules and database.</li>
+  <li>Database storage components.</li>
+  <li>Image hosting and background scheduling services.</li>
+</ul>
+<div class="fig">
+  <div class="box y" style="width:70%; margin:0 auto">Provider / Student / NGO (Web Browser – Desktop &amp; Mobile)</div>
+  <div class="down">↓</div>
+  <div class="box">Presentation Layer: React + TypeScript + Tailwind CSS (Role Dashboards, Discovery, Impact Charts)</div>
+  <div class="down">↓ <span style="font-size:10.5pt; font-style:italic">REST / JSON over HTTPS</span></div>
+  <div class="box" style="background:#fff">API Gateway: Node.js + Express &nbsp;|&nbsp; JWT Authentication &nbsp;|&nbsp; Role Guard &nbsp;|&nbsp; Zod Validation</div>
+  <p class="layer-label">Application Layer (Backend Modules)</p>
+  <div class="mods">
+    <div class="box g">Auth &amp; Role Mgmt</div>
+    <div class="box g">Food Listing &amp; Expiry</div>
+    <div class="box g">Discovery &amp; Search</div>
+    <div class="box g">Request &amp; Pickup</div>
+    <div class="box g">Notifications, Impact &amp; Leaderboard</div>
+  </div>
+  <div class="down">↓</div>
+  <div class="box r">Data Layer: PostgreSQL via Prisma ORM (Users, FoodListings, FoodRequests, Notifications)</div>
+  <div class="down">↓</div>
+  <div class="svc">
+    <div class="box k">Image Hosting: Cloudinary</div>
+    <div class="box k">Scheduler: Expiry Sweep &amp; Reminders (60 s)</div>
+  </div>
+  <p class="figcap">Figure 2: High-Level Architecture of FoodWise</p>
+</div>
+
+<h2 id="s5-5">5.5 Low-Level Design of Each Module</h2>
+<p>Each module is described in terms of its purpose, inputs, processing, outputs, database entities, algorithms, interfaces and error handling.</p>
+
+<h3 id="s5-5-1">5.5.1 Low-Level Design – Module 1</h3>
+<p><b>Module Name:</b> Authentication &amp; Role Management Module</p>
+<p class="cap">Table 11: Low-Level Design of Module 1</p>
+<table class="t lld">
+  <tr><th>Parameter</th><th>Description</th></tr>
+  <tr><td>Purpose</td><td>Register users with a role, authenticate them and control access to role-specific features.</td></tr>
+  <tr><td>Input</td><td>Name, e-mail, password, role (provider / student / NGO), organisation, campus, phone; login credentials.</td></tr>
+  <tr><td>Processing</td><td>Validate input; require an organisation for providers and NGOs; hash the password; create the account; issue a signed JWT (7-day validity); verify the token and role on every protected request.</td></tr>
+  <tr><td>Output</td><td>Account created, login success / failure, JWT, current user profile, role-specific dashboard.</td></tr>
+  <tr><td>Database</td><td>User (id, name, email, passwordHash, role, organization, phone, campus, createdAt).</td></tr>
+  <tr><td>Algorithm</td><td>bcrypt salted hashing; JWT signature verification; role-based access control (requireAuth, requireRole).</td></tr>
+  <tr><td>Interface</td><td>Provides the identity and role of the logged-in user to all other modules.</td></tr>
+  <tr><td>Error Handling</td><td>Duplicate e-mail, weak password, invalid credentials, missing or expired token (401), wrong role (403).</td></tr>
+</table>
+
+<h3 id="s5-5-2">5.5.2 Low-Level Design – Module 2</h3>
+<p><b>Module Name:</b> Food Listing &amp; Expiry Module</p>
+<p class="cap">Table 12: Low-Level Design of Module 2</p>
+<table class="t lld">
+  <tr><th>Parameter</th><th>Description</th></tr>
+  <tr><td>Purpose</td><td>Let providers publish, edit and withdraw surplus food listings and expire outdated listings automatically.</td></tr>
+  <tr><td>Input</td><td>Title, description, category, dietary type, image, quantity, unit, kg per unit, preparation time, pickup location, deadline.</td></tr>
+  <tr><td>Processing</td><td>Validate fields (deadline in the future); upload image; create listing with remaining = quantity; on edit, recompute remaining = quantity − claimed; on withdrawal, cancel open requests and notify requesters; every 60 s expire listings past their deadline.</td></tr>
+  <tr><td>Output</td><td>Listing page, provider’s active and past listings, status (Active, Completed, Expired, Cancelled).</td></tr>
+  <tr><td>Database</td><td>FoodListing (id, providerId, title, category, dietary, imageUrl, quantity, remaining, unit, kgPerUnit, preparedAt, pickupLocation, deadline, status, timestamps).</td></tr>
+  <tr><td>Algorithm</td><td>Owner-based edit permission checks; scheduled expiry sweep; image type and size validation (max 5 MB).</td></tr>
+  <tr><td>Interface</td><td>Supplies listings to the Discovery module; receives stock updates from the Request module.</td></tr>
+  <tr><td>Error Handling</td><td>Past deadline, quantity lower than already claimed, invalid image, unauthorised edit attempts.</td></tr>
+</table>
+
+<h3 id="s5-5-3">5.5.3 Low-Level Design – Module 3</h3>
+<p><b>Module Name:</b> Discovery &amp; Search Module</p>
+<p class="cap">Table 13: Low-Level Design of Module 3</p>
+<table class="t lld">
+  <tr><th>Parameter</th><th>Description</th></tr>
+  <tr><td>Purpose</td><td>Help students and NGOs find available surplus food quickly.</td></tr>
+  <tr><td>Input</td><td>Search keyword; filters for category (meals, bakery, snacks, fruits &amp; vegetables, dairy, beverages, desserts) and dietary type (veg, non-veg, vegan); sort option.</td></tr>
+  <tr><td>Processing</td><td>Query only active listings with remaining &gt; 0 and a future deadline; apply case-insensitive keyword match and filters; sort by deadline, newest or quantity; synchronise filters with the URL.</td></tr>
+  <tr><td>Output</td><td>Grid of food cards with photo, provider, quantity left and time left; food details page.</td></tr>
+  <tr><td>Database</td><td>Reads FoodListing joined with provider (User).</td></tr>
+  <tr><td>Algorithm</td><td>Keyword search, multi-criteria filtering, sorting, debounced search input.</td></tr>
+  <tr><td>Interface</td><td>Reads data from the Listing module; links to the Request module from the details page.</td></tr>
+  <tr><td>Error Handling</td><td>Empty results message, invalid filter values ignored, missing images replaced by a fallback.</td></tr>
+</table>
+
+<h3 id="s5-5-4">5.5.4 Low-Level Design – Module 4</h3>
+<p><b>Module Name:</b> Request &amp; Pickup Module</p>
+<p class="cap">Table 14: Low-Level Design of Module 4</p>
+<table class="t lld">
+  <tr><th>Parameter</th><th>Description</th></tr>
+  <tr><td>Purpose</td><td>Manage the full life cycle of a food request from creation to pickup, keeping quantities correct.</td></tr>
+  <tr><td>Input</td><td>Requested quantity and message (recipient); approve / decline with reason (provider); pickup code; cancellation.</td></tr>
+  <tr><td>Processing</td><td>Check role limit (student ≤ 3) and availability; create request with a random 4-digit code; on approval, reserve stock atomically and auto-decline pending requests that no longer fit; on decline or cancellation of an approved request, return the quantity; on pickup, compare codes and mark as collected; mark listing completed when fully collected.</td></tr>
+  <tr><td>Output</td><td>Request status, pickup code, updated remaining quantity, incoming request lists for providers.</td></tr>
+  <tr><td>Database</td><td>FoodRequest (id, listingId, requesterId, quantity, message, status, pickupCode, reminderSent, createdAt, decidedAt, collectedAt).</td></tr>
+  <tr><td>Algorithm</td><td>Request state machine (Figure 3); conditional decrement in a database transaction.</td></tr>
+  <tr><td>Interface</td><td>Updates the Listing module’s stock; triggers notifications; supplies collected data to the Impact module.</td></tr>
+  <tr><td>Error Handling</td><td>Quantity above limit or availability, duplicate open request, wrong pickup code, invalid state transition, request on own listing.</td></tr>
+</table>
+<div class="fig">
+  <div class="states">
+    <div class="box y">PENDING</div>
+    <div class="arr"><b>→</b>approve</div>
+    <div class="box">APPROVED<small>stock reserved</small></div>
+    <div class="arr"><b>→</b>code ok</div>
+    <div class="box g">COLLECTED</div>
+  </div>
+  <div class="states">
+    <div class="arr" style="grid-column:1"><b>↓</b></div>
+    <div></div>
+    <div class="arr" style="grid-column:3"><b>↓</b></div>
+  </div>
+  <div class="states">
+    <div class="box r" style="padding:4pt">REJECTED / CANCELLED<small>declined, withdrawn, auto-declined</small></div>
+    <div></div>
+    <div class="box k" style="padding:4pt">REJECTED / CANCELLED / EXPIRED<small>stock returned to listing</small></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p class="figcap" style="margin-bottom:8pt">Figure 3: State Diagram of a Food Request</p>
+</div>
+
+<h3 id="s5-5-5">5.5.5 Low-Level Design – Module 5</h3>
+<p><b>Module Name:</b> Notification, Impact &amp; Leaderboard Module</p>
+<p class="cap">Table 15: Low-Level Design of Module 5</p>
+<table class="t lld">
+  <tr><th>Parameter</th><th>Description</th></tr>
+  <tr><td>Purpose</td><td>Keep users informed and measure, visualise and reward the food rescued on the platform.</td></tr>
+  <tr><td>Input</td><td>Events from other modules (approval, rejection, cancellation, expiry, deadline approaching); collected requests; scope (everyone / just me), time range and leaderboard period.</td></tr>
+  <tr><td>Processing</td><td>Create notifications with title, body and link; maintain unread count; aggregate collected quantities into meals, kg and CO₂e, weekly series and category split; compute rescue rate; rank providers and recipients by points.</td></tr>
+  <tr><td>Output</td><td>Notification bell and page; impact dashboard with charts; leaderboard with podium and rankings.</td></tr>
+  <tr><td>Database</td><td>Notification (id, userId, type, title, body, link, read, createdAt); reads FoodRequest and FoodListing.</td></tr>
+  <tr><td>Algorithm</td><td>Event-driven notification generation; time-bucketed aggregation; weighted scoring (Points = 10 × kg + 5 × pickups).</td></tr>
+  <tr><td>Interface</td><td>Receives events from Listing and Request modules; supplies statistics to dashboards and the landing page.</td></tr>
+  <tr><td>Error Handling</td><td>Access to another user’s notifications denied; empty-state messages when no data exist; invalid ranges clamped.</td></tr>
+</table>
+</section>
+
+<!-- ============================ 6. ROADMAP ============================ -->
+<section class="chapter">
+<h1 id="s6">6. Roadmap and Distribution of Work</h1>
+<h2 id="s6-1">6.1 Project Roadmap</h2>
+<p>Table 16 gives the planned roadmap of the project.</p>
+<p class="cap">Table 16: Project Roadmap</p>
+<table class="t">
+  <tr><th class="c" style="width:7%">S.No.</th><th style="width:46%">Activity</th><th style="width:17%">Timeline</th><th>Deliverable</th></tr>
+  <tr><td class="c">1</td><td>Problem Identification: problem, objectives and scope</td><td>Week 1</td><td>Problem definition</td></tr>
+  <tr><td class="c">2</td><td>Literature Survey: research and gap analysis</td><td>Weeks 1–2</td><td>Literature review</td></tr>
+  <tr><td class="c">3</td><td>Requirements: functional and non-functional</td><td>Week 2</td><td>Requirements document</td></tr>
+  <tr><td class="c">4</td><td>System Design: UI, database schema and architecture</td><td>Weeks 3–4</td><td>System design</td></tr>
+  <tr><td class="c">5</td><td>Authentication &amp; Roles: registration, login, dashboards</td><td>Week 5</td><td>Auth module</td></tr>
+  <tr><td class="c">6</td><td>Food Listings: create, edit, withdraw, image upload</td><td>Weeks 5–6</td><td>Listing module</td></tr>
+  <tr><td class="c">7</td><td>Discovery: search, filters, food details page</td><td>Weeks 6–7</td><td>Discovery page</td></tr>
+  <tr><td class="c">8</td><td>Requests &amp; Pickup: approval, stock reservation, pickup code</td><td>Weeks 7–8</td><td>Request module</td></tr>
+  <tr><td class="c">9</td><td>Notifications, Expiry, Impact &amp; Leaderboard</td><td>Weeks 9–10</td><td>Analytics dashboard</td></tr>
+  <tr><td class="c">10</td><td>Integration: combine modules, seed realistic data</td><td>Week 10</td><td>Integrated prototype</td></tr>
+  <tr><td class="c">11</td><td>Testing: functional, API, concurrency and responsive testing</td><td>Weeks 11–12</td><td>Test report</td></tr>
+  <tr><td class="c">12</td><td>Deployment: host and demonstrate system</td><td>Week 13</td><td>Working prototype</td></tr>
+  <tr><td class="c">13</td><td>Documentation: report and presentation</td><td>Week 14</td><td>Final report</td></tr>
+</table>
+
+<h2 id="s6-2">6.2 Major Milestones</h2>
+<ul>
+  <li><b>M1:</b> Problem statement and objectives finalized.</li>
+  <li><b>M2:</b> Literature survey and project gap finalized.</li>
+  <li><b>M3:</b> System architecture and database design finalized.</li>
+  <li><b>M4:</b> Role-based authentication and dashboards completed.</li>
+  <li><b>M5:</b> Food listing module with image upload completed.</li>
+  <li><b>M6:</b> Discovery and search completed.</li>
+  <li><b>M7:</b> Request, approval and code-verified pickup completed.</li>
+  <li><b>M8:</b> Notifications, automatic expiry, impact analytics and leaderboard integrated.</li>
+  <li><b>M9:</b> Complete prototype integrated with sample data.</li>
+  <li><b>M10:</b> Testing completed.</li>
+  <li><b>M11:</b> Final documentation completed.</li>
+</ul>
+
+<h2 id="s6-3">6.3 Team-Wise Distribution of Work</h2>
+<p class="cap">Table 17: Distribution of Work Among Team Members</p>
+<table class="t">
+  <tr><th style="width:28%">Team Member</th><th style="width:20%">Role</th><th>Assigned Module / Task</th></tr>
+  <tr><td>Shatakshi Pachori (2025340400)</td><td>Team Lead / Researcher</td><td>Requirements, literature survey, system design, database schema, authentication and role management, request and pickup module, impact calculations, integration and documentation.</td></tr>
+  <tr><td>Mehak (2025497969)</td><td>Design / Implementation</td><td>UI design and frontend pages, food listing and image upload, discovery and search, notifications, impact charts and leaderboard, testing and presentation.</td></tr>
+</table>
+
+<h2 id="s6-4">6.4 Responsibility Matrix</h2>
+<p class="cap">Table 18: Responsibility Matrix</p>
+<table class="t" style="width:80%; margin-left:auto; margin-right:auto">
+  <tr><th>Activity</th><th class="c">Shatakshi</th><th class="c">Mehak</th></tr>
+  <tr><td>Problem Definition</td><td class="c">Lead</td><td class="c">Support</td></tr>
+  <tr><td>Literature Survey</td><td class="c">Lead</td><td class="c">Support</td></tr>
+  <tr><td>System Design</td><td class="c">Lead</td><td class="c">Support</td></tr>
+  <tr><td>Database</td><td class="c">Lead</td><td class="c">Support</td></tr>
+  <tr><td>Authentication &amp; Roles</td><td class="c">Lead</td><td class="c">Support</td></tr>
+  <tr><td>UI / Frontend Design</td><td class="c">Support</td><td class="c">Lead</td></tr>
+  <tr><td>Food Listings &amp; Upload</td><td class="c">Support</td><td class="c">Lead</td></tr>
+  <tr><td>Discovery &amp; Search</td><td class="c">Support</td><td class="c">Lead</td></tr>
+  <tr><td>Requests &amp; Pickup</td><td class="c">Lead</td><td class="c">Support</td></tr>
+  <tr><td>Notifications &amp; Expiry</td><td class="c">Support</td><td class="c">Lead</td></tr>
+  <tr><td>Impact &amp; Leaderboard</td><td class="c">Lead</td><td class="c">Lead</td></tr>
+  <tr><td>Testing</td><td class="c">Lead</td><td class="c">Lead</td></tr>
+  <tr><td>Documentation</td><td class="c">Lead</td><td class="c">Support</td></tr>
+  <tr><td>Presentation</td><td class="c">Lead</td><td class="c">Lead</td></tr>
+</table>
+</section>
+
+<!-- ============================ 7. CONCLUSION ============================ -->
+<section class="chapter">
+<h1 id="s7">7. Conclusion</h1>
+<p>The proposed FoodWise project addresses the waste of edible surplus food in college cafeterias, hostel messes and nearby restaurants, and the lack of a fast, trusted channel through which this food can reach students and NGOs before it expires. The system provides a focused redistribution environment in which surplus is listed, discovered, requested, approved and collected in a controlled way.</p>
+<p>Unlike a general food-sharing application, FoodWise is designed around the campus: it has distinct roles and dashboards for providers, students and NGOs, enforces per-role request limits, keeps the available quantity correct through atomic stock reservation, verifies every handover with a one-time pickup code and automatically expires listings whose deadline has passed. Notifications keep every participant informed of approvals, rejections and approaching deadlines.</p>
+<p>The project planning also identifies the tools, technologies, algorithms and mathematical models required for implementation. The literature survey provides the foundation for the selected approach, while the feasibility analysis shows that the project is technically and economically feasible using React, TypeScript, Node.js/Express, PostgreSQL with Prisma, JWT authentication, Recharts and Cloudinary. Future versions can include institutional single sign-on, SMS and e-mail alerts, map-based pickup navigation, demand prediction to help kitchens cook the right amount, food-safety checklists and native mobile applications.</p>
+<p>The expected contribution of the project is therefore a working, measurable and scalable platform through which a college campus can stop wasting food – turning tonight’s surplus into someone’s meal and making every rescued plate visible as meals saved, kilograms diverted and emissions avoided.</p>
+</section>
+
+<!-- ============================ 8. REFERENCES ============================ -->
+<section class="chapter">
+<h1 id="s8">8. References</h1>
+<div class="refs">
+<p>[1] J. Gustavsson, C. Cederberg, U. Sonesson, R. van Otterdijk, and A. Meybeck, <i>Global Food Losses and Food Waste – Extent, Causes and Prevention</i>. Rome, Italy: Food and Agriculture Organization of the United Nations (FAO), 2011.</p>
+<p>[2] J. Parfitt, M. Barthel, and S. Macnaughton, “Food waste within food supply chains: quantification and potential for change to 2050,” <i>Philosophical Transactions of the Royal Society B: Biological Sciences</i>, vol. 365, no. 1554, pp. 3065–3081, 2010. DOI: 10.1098/rstb.2010.0126.</p>
+<p>[3] K. Painter, G. Thondhlana, and H. W. Kua, “Food waste generation and potential interventions at Rhodes University, South Africa,” <i>Waste Management</i>, vol. 56, pp. 491–497, 2016. DOI: 10.1016/j.wasman.2016.07.013.</p>
+<p>[4] L. Michelini, L. Principato, and G. Iasevoli, “Understanding food sharing models to tackle sustainability challenges,” <i>Ecological Economics</i>, vol. 145, pp. 205–217, 2018. DOI: 10.1016/j.ecolecon.2017.09.009.</p>
+<p>[5] J. Harvey, A. Smith, J. Goulding, and I. Branco Illodo, “Food sharing, redistribution, and waste reduction via mobile applications: A social network analysis,” <i>Industrial Marketing Management</i>, vol. 88, pp. 437–448, 2020. DOI: 10.1016/j.indmarman.2019.02.019.</p>
+<p>[6] United Nations Environment Programme (UNEP), <i>Food Waste Index Report 2024. Think Eat Save: Tracking Progress to Halve Global Food Waste</i>. Nairobi, Kenya: UNEP, 2024.</p>
+<p>[7] Food and Agriculture Organization of the United Nations (FAO), <i>Food Wastage Footprint: Impacts on Natural Resources – Summary Report</i>. Rome, Italy: FAO, 2013.</p>
+</div>
+</section>
+
+<!-- ============================ APPENDIX ============================ -->
+<section class="chapter">
+<h1 id="sA">A. Report Preparation and Presentation Guidelines</h1>
+<h2 id="sA-1">A.1 Project Proposal Report</h2>
+<p>The project design report is prepared in a clear, systematic and professional format. The report contains:</p>
+<ul>
+  <li>Title page</li><li>Abstract</li><li>Introduction</li><li>Problem statement</li><li>Objectives</li><li>Scope</li>
+  <li>Literature survey</li><li>Tools and technologies</li><li>Algorithms and formulas, wherever applicable</li>
+  <li>Feasibility analysis</li><li>Proposed solution</li><li>System workflow</li><li>Identification of modules</li>
+  <li>High-level system design</li><li>Low-level design of each module</li><li>Project roadmap</li>
+  <li>Distribution of work</li><li>Conclusion</li><li>References</li>
+</ul>
+<p>Appropriate diagrams, tables and technical illustrations are used wherever required. All figures and tables have proper captions and are referred to within the text.</p>
+
+<h2 id="sA-2">A.2 Communication / Presentation – PO10</h2>
+<p>The presentation covers the following:</p>
+<ol>
+  <li>Problem statement</li><li>Background and motivation</li><li>Objectives</li><li>Existing situation and gap</li>
+  <li>Proposed solution</li><li>System workflow</li><li>Major modules</li><li>High-level architecture</li>
+  <li>Low-level design</li><li>Tools and technologies</li><li>Algorithms / methodology</li><li>Expected outcomes</li>
+  <li>Project roadmap</li><li>Team contribution</li>
+</ol>
+<p>The presentation should demonstrate:</p>
+<ul>
+  <li>Clear technical communication.</li>
+  <li>Logical organization of content.</li>
+  <li>Effective use of diagrams and illustrations.</li>
+  <li>Appropriate technical terminology.</li>
+  <li>Equal participation of team members.</li>
+  <li>Ability to answer questions related to the project.</li>
+</ul>
+
+<h2 id="sA-3">A.3 Reference Quality Checklist</h2>
+<ul>
+  <li>References are relevant to the project.</li>
+  <li>Recent research papers and reports are included wherever possible.</li>
+  <li>Journal and organisational sources are properly cited.</li>
+  <li>All cited sources appear in the reference list.</li>
+  <li>All references follow a consistent citation format.</li>
+  <li>Sources are critically analysed rather than simply listed.</li>
+</ul>
+
+<h2 id="sA-4">A.4 Final Student Check / Submission Checklist</h2>
+<ul>
+  <li>Problem statement is clearly defined.</li>
+  <li>Objectives are measurable and achievable.</li>
+  <li>Methodology is clearly explained.</li>
+  <li>Major modules have been identified.</li>
+  <li>High-level design is included.</li>
+  <li>Low-level design is provided for each module.</li>
+  <li>Required tools, technologies, algorithms and formulas are identified.</li>
+  <li>Literature survey is complete and project gap is clearly established.</li>
+  <li>Feasibility analysis is completed.</li>
+  <li>Project roadmap and work distribution are included.</li>
+  <li>Figures and tables are properly numbered.</li>
+  <li>References are properly formatted.</li>
+  <li>Report formatting has been checked.</li>
+  <li>Presentation has been prepared.</li>
+</ul>
+</section>
+
+</body>
+</html>

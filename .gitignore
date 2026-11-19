@@ -1,0 +1,10 @@
+node_modules
+server/.pgdata
+server/uploads
+server/.env
+client/dist
+
+# OS / build leftovers
+.DS_Store
+*.tsbuildinfo
+*.log

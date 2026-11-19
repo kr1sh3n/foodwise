@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-50: #effdf3;
+  --color-brand-100: #d9fbe4;
+  --color-brand-200: #b4f5cb;
+  --color-brand-300: #7ceaa6;
+  --color-brand-400: #3dd679;
+  --color-brand-500: #16bd57;
+  --color-brand-600: #0b9a45;
+  --color-brand-700: #0d7a3a;
+  --color-brand-800: #105f32;
+  --color-brand-900: #0f4e2b;
+  --color-brand-950: #032b15;
+  --color-cream: #f7faf6;
+  --animate-fade-up: fade-up .5s cubic-bezier(.2,.7,.2,1) both;
+  @keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+}
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-cream text-slate-800 antialiased; }
+  h1, h2, h3 { @apply text-slate-900 tracking-tight; }
+}
+
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition active:scale-[.98] disabled:opacity-50 disabled:pointer-events-none cursor-pointer; }
+@utility btn-primary { @apply btn bg-brand-600 text-white shadow-sm shadow-brand-600/30 hover:bg-brand-700; }
+@utility btn-ghost { @apply btn text-slate-700 hover:bg-slate-100; }
+@utility btn-outline { @apply btn border border-slate-200 bg-white text-slate-700 hover:border-brand-300 hover:text-brand-700; }
+@utility btn-danger { @apply btn border border-red-200 bg-white text-red-600 hover:bg-red-50; }
+@utility card { @apply rounded-2xl border border-slate-200/70 bg-white shadow-[0_1px_2px_rgba(16,24,40,.04),0_4px_16px_-6px_rgba(16,24,40,.08)]; }
+@utility input { @apply w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15; }
+@utility label { @apply mb-1.5 block text-sm font-medium text-slate-700; }
+@utility chip { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold; }
